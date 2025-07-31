@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid Tewari | Research Papers</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html" class="active">Papers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html" class="active">Papers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Research Papers Section -->
+    <section class="knowledge-repository">
+        <div class="repo-container">
+            <div class="section-header">
+                <h2 class="section-title">KNOWLEDGE REPOSITORY</h2>
+                <p class="section-subtitle">Peer-reviewed publications and technical manuscripts</p>
+                <div class="repo-controls">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search neural archives..." class="search-input">
+                        <button class="search-btn">⟳ Query</button>
+                    </div>
+                    <div class="sort-options">
+                        <span class="sort-label">Sort by:</span>
+                        <select class="sort-select">
+                            <option value="date-desc">Date (Newest)</option>
+                            <option value="date-asc">Date (Oldest)</option>
+                            <option value="citations">Citations</option>
+                            <option value="title">Title</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="paper-grid">
+                <!-- Paper 1 -->
+                <div class="paper-card fade-up">
+                    <div class="paper-header">
+                        <span class="paper-year">2023</span>
+                        <span class="paper-citations">142 citations</span>
+                    </div>
+                    <h3 class="paper-title">"Quantum Neural Interfaces: Bridging AI and Consciousness"</h3>
+                    <div class="paper-meta">
+                        <span class="paper-journal">Journal of Neuroquantics</span>
+                        <span class="paper-doi">DOI: 10.1016/j.neuroq.2023.04.015</span>
+                    </div>
+                    <p class="paper-abstract">This paper establishes a theoretical framework for quantum-enhanced brain-computer interfaces, demonstrating through simulation how quantum entanglement can enable instantaneous neural-AI communication...</p>
+                    <div class="paper-links">
+                        <a href="#" class="btn-primary">
+                            <span class="link-icon">↓</span> PDF
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <span class="link-icon">↗</span> Cite
+                        </a>
+                        <a href="#" class="btn-tertiary">
+                            <span class="link-icon">⊕</span> BibTeX
+                        </a>
+                    </div>
+                    <div class="paper-tags">
+                        <span class="tag quantum">Quantum</span>
+                        <span class="tag neuro">Neurotech</span>
+                        <span class="tag ai">AI</span>
+                    </div>
+                </div>
+                
+                <!-- Paper 2 -->
+                <div class="paper-card fade-up">
+                    <div class="paper-header">
+                        <span class="paper-year">2022</span>
+                        <span class="paper-citations">89 citations</span>
+                    </div>
+                    <h3 class="paper-title">"Ethical Frameworks for Autonomous Neural Augmentation"</h3>
+                    <div class="paper-meta">
+                        <span class="paper-journal">AI Ethics Review</span>
+                        <span class="paper-doi">DOI: 10.1145/3524487.3527231</span>
+                    </div>
+                    <p class="paper-abstract">Proposes a new ethical classification system for cognitive enhancement technologies, introducing the concept of "neural autonomy levels" to guide policy decisions regarding self-improving neural implants...</p>
+                    <div class="paper-links">
+                        <a href="#" class="btn-primary">
+                            <span class="link-icon">↓</span> PDF
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <span class="link-icon">↗</span> Cite
+                        </a>
+                    </div>
+                    <div class="paper-tags">
+                        <span class="tag ethics">Ethics</span>
+                        <span class="tag neuro">Neurotech</span>
+                    </div>
+                </div>
+                
+                <!-- Paper 3 -->
+                <div class="paper-card fade-up">
+                    <div class="paper-header">
+                        <span class="paper-year">2021</span>
+                        <span class="paper-citations">210 citations</span>
+                    </div>
+                    <h3 class="paper-title">"Holographic Memory Storage in Synthetic Neural Tissue"</h3>
+                    <div class="paper-meta">
+                        <span class="paper-journal">Nature Neuroengineering</span>
+                        <span class="paper-doi">DOI: 10.1038/s41565-021-00974-5</span>
+                    </div>
+                    <p class="paper-abstract">Demonstrates a breakthrough in biological memory storage density using quantum holography principles, achieving 1 petabyte/cm³ in lab-grown neural tissue with 99.9% retrieval accuracy...</p>
+                    <div class="paper-links">
+                        <a href="#" class="btn-primary">
+                            <span class="link-icon">↓</span> PDF
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <span class="link-icon">↗</span> Cite
+                        </a>
+                        <a href="#" class="btn-tertiary">
+                            <span class="link-icon">⊕</span> BibTeX
+                        </a>
+                    </div>
+                    <div class="paper-tags">
+                        <span class="tag memory">Memory</span>
+                        <span class="tag quantum">Quantum</span>
+                    </div>
+                </div>
+                
+                <!-- Paper 4 -->
+                <div class="paper-card fade-up">
+                    <div class="paper-header">
+                        <span class="paper-year">2020</span>
+                        <span class="paper-citations">76 citations</span>
+                    </div>
+                    <h3 class="paper-title">"Neural Lace: Self-Assembling Nanoscale Brain Interfaces"</h3>
+                    <div class="paper-meta">
+                        <span class="paper-journal">Science Robotics</span>
+                        <span class="paper-doi">DOI: 10.1126/scirobotics.abc9823</span>
+                    </div>
+                    <p class="paper-abstract">Introduces a new class of nanoscale neural interfaces that self-assemble into optimal configurations within brain tissue, showing 300% improvement in signal fidelity over traditional implants...</p>
+                    <div class="paper-links">
+                        <a href="#" class="btn-primary">
+                            <span class="link-icon">↓</span> PDF
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <span class="link-icon">↗</span> Cite
+                        </a>
+                    </div>
+                    <div class="paper-tags">
+                        <span class="tag nano">Nanotech</span>
+                        <span class="tag neuro">Neurotech</span>
+                    </div>
+                </div>
+                
+                <!-- Paper 5 -->
+                <div class="paper-card fade-up">
+                    <div class="paper-header">
+                        <span class="paper-year">2019</span>
+                        <span class="paper-citations">183 citations</span>
+                    </div>
+                    <h3 class="paper-title">"Consciousness Transfer Protocol: A Mathematical Framework"</h3>
+                    <div class="paper-meta">
+                        <span class="paper-journal">Journal of Artificial Consciousness</span>
+                        <span class="paper-doi">DOI: 10.1016/j.jac.2019.12.004</span>
+                    </div>
+                    <p class="paper-abstract">Presents the first complete mathematical model for partial and complete consciousness transfer between biological and artificial substrates, including stability proofs and continuity requirements...</p>
+                    <div class="paper-links">
+                        <a href="#" class="btn-primary">
+                            <span class="link-icon">↓</span> PDF
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <span class="link-icon">↗</span> Cite
+                        </a>
+                        <a href="#" class="btn-tertiary">
+                            <span class="link-icon">⊕</span> BibTeX
+                        </a>
+                    </div>
+                    <div class="paper-tags">
+                        <span class="tag consciousness">Consciousness</span>
+                        <span class="tag ai">AI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="repo-footer">
+                <button class="btn-primary" id="loadMorePapers">
+                    <span class="btn-icon">⟳</span> Load More Research
+                </button>
+                <div class="stats">
+                    <span class="stat">Total Publications: 24</span>
+                    <span class="stat">Total Citations: 1,842</span>
+                    <span class="stat">h-index: 12</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        // Papers-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sort functionality
+            const sortSelect = document.querySelector('.sort-select');
+            sortSelect.addEventListener('change', function() {
+                const papersContainer = document.querySelector('.paper-grid');
+                const papers = Array.from(document.querySelectorAll('.paper-card'));
+                
+                papers.sort((a, b) => {
+                    switch(this.value) {
+                        case 'date-desc':
+                            return parseInt(b.querySelector('.paper-year').textContent) - 
+                                   parseInt(a.querySelector('.paper-year').textContent);
+                        case 'date-asc':
+                            return parseInt(a.querySelector('.paper-year').textContent) - 
+                                   parseInt(b.querySelector('.paper-year').textContent);
+                        case 'citations':
+                            return parseInt(b.querySelector('.paper-citations').textContent) - 
+                                   parseInt(a.querySelector('.paper-citations').textContent);
+                        case 'title':
+                            return a.querySelector('.paper-title').textContent.localeCompare(
+                                b.querySelector('.paper-title').textContent);
+                    }
+                });
+                
+                papers.forEach(paper => papersContainer.appendChild(paper));
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function() {
+                const term = this.value.toLowerCase();
+                document.querySelectorAll('.paper-card').forEach(paper => {
+                    const text = paper.textContent.toLowerCase();
+                    paper.style.display = text.includes(term) ? 'block' : 'none';
+                });
+            });
+            
+            // Load more papers
+            document.getElementById('loadMorePapers').addEventListener('click', function() {
+                alert('[SYSTEM] Additional research papers would be loaded from archive');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid Tewari | Neural Link Established</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="neural-interface">
+        <div class="interface-container">
+            <div class="section-header">
+                <h2 class="section-title">NEURAL LINK ESTABLISHED</h2>
+                <p class="section-subtitle">Initiate direct mind-to-mind communication protocol</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-terminal">
+                    <div class="terminal-header">
+                        <span class="terminal-title">MESSAGE TRANSMITTER v3.2.1</span>
+                        <span class="terminal-status">STATUS: <span class="status-active">ACTIVE</span></span>
+                    </div>
+                    <div class="terminal-body">
+                        <form id="neuralContactForm">
+                            <div class="form-group">
+                                <label for="neuralId">
+                                    <span class="label-icon">⟳</span> NEURAL ID
+                                </label>
+                                <input type="text" id="neuralId" name="neuralId" required 
+                                       placeholder="Your full cognitive signature">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quantumAddress">
+                                    <span class="label-icon">⊛</span> QUANTUM ADDRESS
+                                </label>
+                                <input type="email" id="quantumAddress" name="email" required 
+                                       placeholder="your.mind@quantum.net">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="messagePriority">
+                                    <span class="label-icon">⚠</span> MESSAGE PRIORITY
+                                </label>
+                                <select id="messagePriority" name="priority">
+                                    <option value="standard">Standard (72h response)</option>
+                                    <option value="urgent">Urgent (24h response)</option>
+                                    <option value="critical">Critical (8h response)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="neuralMessage">
+                                    <span class="label-icon">⇅</span> NEURAL TRANSMISSION
+                                </label>
+                                <textarea id="neuralMessage" name="message" rows="6" required
+                                          placeholder="Encode your thoughts here..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">
+                                    <span class="btn-icon">⚡</span> INITIATE TRANSMISSION
+                                </button>
+                                <button type="reset" class="btn-secondary">
+                                    <span class="btn-icon">↺</span> PURGE BUFFER
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-channels">
+                    <div class="channel-card">
+                        <div class="channel-icon">⊛</div>
+                        <h3 class="channel-title">Quantum Entanglement Link</h3>
+                        <p class="channel-info">
+                            <span class="info-label">Frequency:</span> 24.7THz<br>
+                            <span class="info-label">Encryption:</span> QKD-256
+                        </p>
+                        <a href="mailto:sidcertifications@outlook.com" class="btn-tertiary">
+                            <span class="btn-icon">✉</span> sidcertifications@outlook.com
+                        </a>
+                    </div>
+                    
+                    <div class="channel-card">
+                        <div class="channel-icon">⊕</div>
+                        <h3 class="channel-title">Neural Social Networks</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/SiddheshwarTewari" class="social-link github">
+                                <span class="link-icon">{} </span>GitHub
+                            </a>
+                            <a href="https://linkedin.com/in/sidtewari" class="social-link linkedin">
+                                <span class="link-icon">in </span>LinkedIn
+                            </a>
+                            <a href="https://twitter.com/sidtewari" class="social-link twitter">
+                                <span class="link-icon">𝕏 </span>Twitter
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="channel-card">
+                        <div class="channel-icon">⌖</div>
+                        <h3 class="channel-title">Physical Coordinates</h3>
+                        <p class="channel-info">
+                            <span class="info-label">Neural Research Facility 42</span><br>
+                            Quantum Computing Wing<br>
+                            Silicon Valley, CA 94025<br>
+                            Earth-616
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        // Contact form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('neuralContactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form elements
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                // Simulate transmission
+                submitBtn.innerHTML = '<span class="btn-icon">⌛</span> TRANSMITTING...';
+                submitBtn.disabled = true;
+                
+                // Show transmission animation
+                const terminalBody = document.querySelector('.terminal-body');
+                terminalBody.classList.add('transmitting');
+                
+                // Simulate server response
+                setTimeout(() => {
+                    terminalBody.classList.remove('transmitting');
+                    terminalBody.classList.add('transmission-complete');
+                    
+                    submitBtn.innerHTML = '<span class="btn-icon">✓</span> TRANSMISSION SUCCESS';
+                    
+                    // Show confirmation message
+                    const confirmation = document.createElement('div');
+                    confirmation.className = 'transmission-confirmation';
+                    confirmation.innerHTML = `
+                        <div class="confirmation-header">NEURAL TRANSMISSION ACKNOWLEDGED</div>
+                        <div class="confirmation-body">
+                            <p>Your message has been quantum-encrypted and routed through 7 secure nodes.</p>
+                            <p>Expected response time: <strong>${document.getElementById('messagePriority').value}</strong></p>
+                        </div>
+                    `;
+                    
+                    contactForm.parentNode.insertBefore(confirmation, contactForm.nextSibling);
+                    
+                    // Reset form after delay
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        terminalBody.classList.remove('transmission-complete');
+                        confirmation.remove();
+                    }, 5000);
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

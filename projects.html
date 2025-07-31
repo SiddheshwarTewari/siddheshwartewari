@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid Tewari | Projects</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="projects fade-up">
+        <div class="projects-container">
+            <div class="section-header">
+                <h2 class="section-title">PROJECT ARCHIVE</h2>
+                <p class="section-subtitle">Selected neural interfaces and cybernetic systems</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-icon">🧠</div>
+                    <h3>NeuralLink OS</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2023</span>
+                        <span class="project-tags">#AI #BCI</span>
+                    </div>
+                    <p class="project-desc">Next-gen brain-computer interface operating system enabling direct neural control of digital environments.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">Case Study</a>
+                        <a href="#" class="btn-tertiary">Live Demo</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-icon">👁️</div>
+                    <h3>Ocular HUD</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2022</span>
+                        <span class="project-tags">#AR #Wearables</span>
+                    </div>
+                    <p class="project-desc">Augmented reality contact lenses with full-color display and biometric tracking capabilities.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">White Paper</a>
+                        <a href="#" class="btn-tertiary">Patent</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-icon">🤖</div>
+                    <h3>NeuroBot Framework</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2021</span>
+                        <span class="project-tags">#Robotics #AI</span>
+                    </div>
+                    <p class="project-desc">Open-source framework for creating neurally-controlled robotic systems with haptic feedback.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">GitHub</a>
+                        <a href="#" class="btn-tertiary">Documentation</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-icon">💉</div>
+                    <h3>Nanite MedSystem</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2020</span>
+                        <span class="project-tags">#Biotech #Nanotech</span>
+                    </div>
+                    <p class="project-desc">Programmable medical nanobots for targeted drug delivery and cellular repair.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">Research Paper</a>
+                        <a href="#" class="btn-tertiary">FDA Filing</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-icon">🌐</div>
+                    <h3>Quantum Net</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2019</span>
+                        <span class="project-tags">#Quantum #Security</span>
+                    </div>
+                    <p class="project-desc">Unhackable quantum encryption protocol for secure global communications.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">Technical Docs</a>
+                        <a href="#" class="btn-tertiary">Test Network</a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-icon">🧬</div>
+                    <h3>Genome IDE</h3>
+                    <div class="project-meta">
+                        <span class="project-date">2018</span>
+                        <span class="project-tags">#Biohacking #CRISPR</span>
+                    </div>
+                    <p class="project-desc">Visual programming environment for genetic modification and synthetic biology.</p>
+                    <div class="project-links">
+                        <a href="#" class="btn-secondary">Lab Results</a>
+                        <a href="#" class="btn-tertiary">Ethics Review</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
