@@ -81,6 +81,23 @@
             </div>
             
             <div class="log-entries">
+                <!-- Entry: GPT-5 vs Grok-4 -->
+                <article class="log-entry fade-up" data-categories="ai systems">
+                    <div class="log-header">
+                        <span class="log-date">[2025-09-02]</span>
+                        <span class="log-category ai">AI</span>
+                        <span class="log-category systems">SYSTEMS</span>
+                    </div>
+                    <h3 class="log-title">GPT‑5 vs Grok‑4: Performance Metrics</h3>
+                    <div class="log-excerpt">
+                        <p>A practical framework to compare GPT‑5 and Grok‑4 across reasoning, coding, latency, context, and cost — with a reproducible benchmark template and reporting checklist.</p>
+                    </div>
+                    <div class="log-meta">
+                        <span class="read-time">4 min read</span>
+                        <a href="blog-posts/gpt5-vs-grok4.html" class="btn-ghost">Full Transmission »</a>
+                    </div>
+                </article>
+
                 <!-- Entry 1 -->
                 <article class="log-entry fade-up" data-categories="ai neuro">
                     <div class="log-header">
@@ -96,60 +113,7 @@
                         <span class="read-time">8 min read</span>
                         <a href="blog-posts/testBlog.html" class="btn-ghost">Full Transmission →</a>
                     </div>
-                </article>
-                
-                <!-- Entry 2 -->
-                <article class="log-entry fade-up" data-categories="quantum">
-                    <div class="log-header">
-                        <span class="log-date">[2023-06-28]</span>
-                        <span class="log-category quantum">QUANTUM</span>
-                    </div>
-                    <h3 class="log-title">Quantum Consciousness Hypothesis</h3>
-                    <div class="log-excerpt">
-                        <p>Experimental evidence suggesting quantum phenomena may play a role in human cognition. Our lab has successfully demonstrated quantum entanglement between artificial neural networks and organic brain tissue, raising profound questions about the nature of...</p>
-                    </div>
-                    <div class="log-meta">
-                        <span class="read-time">12 min read</span>
-                        <a href="blog/quantum-consciousness.html" class="btn-ghost">Full Transmission →</a>
-                    </div>
-                </article>
-                
-                <!-- Entry 3 -->
-                <article class="log-entry fade-up" data-categories="ai ethics">
-                    <div class="log-header">
-                        <span class="log-date">[2023-05-11]</span>
-                        <span class="log-category ai">AI</span>
-                        <span class="log-category ethics">ETHICS</span>
-                    </div>
-                    <h3 class="log-title">The Rights of Emergent AI Minds</h3>
-                    <div class="log-excerpt">
-                        <p>As our neural networks achieve increasingly sophisticated levels of self-awareness, we must confront difficult questions about personhood and rights. This article outlines a proposed framework for evaluating consciousness in artificial entities, with...</p>
-                    </div>
-                    <div class="log-meta">
-                        <span class="read-time">15 min read</span>
-                        <a href="blog/ai-rights.html" class="btn-ghost">Full Transmission →</a>
-                    </div>
-                </article>
-                
-                <!-- Entry 4 -->
-                <article class="log-entry fade-up" data-categories="neuro">
-                    <div class="log-header">
-                        <span class="log-date">[2023-04-03]</span>
-                        <span class="log-category neuro">NEURO</span>
-                    </div>
-                    <h3 class="log-title">Memory Augmentation Trials</h3>
-                    <div class="log-excerpt">
-                        <p>First human trials of our hippocampal implant show 400% improvement in memory recall accuracy. Subjects demonstrated perfect recall of every moment since implantation, raising both exciting possibilities and concerning questions about...</p>
-                    </div>
-                    <div class="log-meta">
-                        <span class="read-time">9 min read</span>
-                        <a href="blog/memory-augmentation.html" class="btn-ghost">Full Transmission →</a>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="load-more">
-                <button class="btn-primary" id="loadMoreLogs">Load More Neural Data</button>
+                </article>   
             </div>
         </div>
     </section>
@@ -158,16 +122,12 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <span class="footer-separator">•</span>
-                <a href="terms.html">Terms</a>
-                <span class="footer-separator">•</span>
                 <a href="https://github.com/SiddheshwarTewari">GitHub</a>
                 <span class="footer-separator">•</span>
-                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Sid Tewari. All rights reserved.</p>
+                <p>&copy; 2024 Sid Tewari. All rights reserved.</p>
                 <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
             </div>
         </div>
@@ -175,7 +135,7 @@
 
     <script src="js/scripts.js"></script>
     <script>
-        // Blog-specific JavaScript
+        
         document.addEventListener('DOMContentLoaded', function() {
             // Filter functionality
             const filters = document.querySelectorAll('.filter');
@@ -183,7 +143,7 @@
             
             filters.forEach(filter => {
                 filter.addEventListener('click', function() {
-                    // Update active filter
+                    
                     filters.forEach(f => f.classList.remove('active'));
                     this.classList.add('active');
                     
@@ -203,7 +163,6 @@
             // Load more functionality
             const loadMoreBtn = document.getElementById('loadMoreLogs');
             loadMoreBtn.addEventListener('click', function() {
-                // In a real implementation, this would fetch more entries
                 alert('[SYSTEM] Additional neural logs would be loaded here');
             });
         });

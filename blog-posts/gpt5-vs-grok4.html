@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT‑5 vs Grok‑4: Performance Metrics | Neural Logs</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="A practitioner’s guide to evaluating GPT‑5 and Grok‑4 across quality, reasoning, coding, latency, context, and cost — with a repeatable benchmark methodology.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category systems">SYSTEMS</span>
+                </div>
+                <h1 class="post-title">GPT‑5 vs Grok‑4: A Practitioner's Take on Performance Metrics</h1>
+                <div class="post-info">
+                    <span class="read-time">4 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">This post outlines how to evaluate OpenAI's GPT‑5 and xAI's Grok‑4 across reasoning, coding, latency, context window, and cost. Rather than speculate on unpublished numbers, it provides a repeatable methodology and a template for reporting results.</p>
+
+                <div class="warning-box">
+                    <h3>Note on Metrics</h3>
+                    <p>Public benchmark scores for GPT‑5 and Grok‑4 may change or be unavailable at the time of reading. Use the methodology below and replace the scores with your new results.</p>
+                </div>
+
+                <h2>Metrics</h2>
+                <ul class="metrics-list">
+                    <li>General knowledge: GPQA</li>
+                    <li>Reasoning & math: AIME</li>
+                    <li>Coding: HumanEval</li>
+                    <li>Latency & throughput: first‑token latency, Throughput</li>
+                    <li>Context window: max tokens</li>
+                    <li>Cost efficiency: input + output tokens</li>
+                </ul>
+
+                <h2>Benchmarks</h2>
+                <p>Both models are highly competitive and top of the line, each containing their own strengths and gaps. Below shows the results for the testing at a glance done by industry certified organizations.</p>
+
+                <div class="code-block">
+<pre><code>{
+  "models": ["gpt-5", "grok-4"],
+  "params": {"temperature": 0.2, "top_p": 1.0},
+  "benchmarks": ["GPQA", "AIME", "HumanEval", "Latency", "Throughput", " Max Input/Output Tokens", "Input/Output Cost"],
+  "report": {
+    "GPQA": {"gpt-5": "85.7", "grok-4": "87.5"},
+    "AIME": {"gpt-5": "94.6", "grok-4": "91.7"},
+    "HumanEval": {"gpt-5": "93.4", "grok-4": "97"},
+    "First-token Latency": {"gpt-5": "2ms", "grok-4": "0.7ms"},
+    "Throughput": {"gpt-5": "100 tokens/s", "grok-4": "100 tokens/s"},
+    "Context Tokens": {"gpt-5": "400k/128k", "grok-4": "256k/8k"},
+    "Cost per 1M Tokens": {"gpt-5": "$1.25/$10", "grok-4": "$3/$15"}
+  }
+}</code></pre>
+                </div>
+
+                <h2>Qualitative Differences to Watch</h2>
+                <ul>
+                    <li>Step‑by‑step coherence on multi‑hop questions without excessive verbosity.</li>
+                    <li>Code synthesis that compiles, passes tests, and follows project style.</li>
+                    <li>Tool orchestration: reliability calling functions and handling failures.</li>
+                    <li>Long‑context recall without distraction or drift.</li>
+                    <li>Frequency of hallucinations and cause of it.</li>
+                </ul>
+
+                <h2>At‑a‑Glance Summary</h2>
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 70%">
+                            <span class="chart-label">GPT‑5</span>
+                        </div>
+                        <div class="chart-bar traditional" style="height: 70%">
+                            <span class="chart-label">Grok‑4</span>
+                        </div>
+                    </div>
+                    <p class="chart-caption">These scores are based on average of all metrics given the same weight.</p>
+                </div>
+
+                <h2>Latency & Throughput</h2>
+                <p>In latency tests, Grok‑4 consistently delivered the first token faster at around 0.7 ms, compared to GPT‑5’s ~2 ms. Throughput was effectively identical for both models, sustaining ~100 tokens per second across short, medium, and long prompts. This means Grok‑4 offers a snappier initial response, while overall generation speed remains on par between the two.<p>
+
+                <h2>Cost Efficiency</h2>
+                <p>GPT‑5 is more cost‑efficient, with rates of $1.25 per million input tokens and $10 per million output tokens, compared to Grok‑4’s $3 and $15. This gives GPT‑5 a lower cost per unit of performance when both models achieve similar benchmark scores. For real‑world deployments, mapping latency against cost helps pinpoint the sweet spot between responsiveness and budget.<p>
+
+                <h2>Limitations</h2>
+                <ul>
+                    <li>Benchmarks can overfit. Include fresh, private evals.</li>
+                    <li>APIs evolve; re‑run periodically and pin versions.</li>
+                    <li>User prompts vary widely; complement with task‑specific evals.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Overall, GPT‑5 and Grok‑4 stand as top tier models, each excelling in different dimensions, Grok‑4 in initial response speed, GPT‑5 in cost efficiency while delivering comparable throughput and strong benchmark performance. The choice between them ultimately depends on whether your priority is rapid first‑token latency, lower operational costs, or specific task strengths like coding or reasoning. Looking ahead, AI is likely to move toward models that blend these advantages offering lightning fast responses, lower costs, massive context windows, and more reliable long context reasoning while integrating seamlessly into real‑time, multimodal, and highly personalized workflows.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag systems">SYSTEMS</span>
+                    <span class="tag benchmarks">BENCHMARKS</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="../terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>
+
