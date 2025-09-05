@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="My experience putting together an entire Media Recommendation System using AI, specifically DeepSeek API key.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category media">Media</span>
+                </div>
+                <h1 class="post-title">How I Bult a Media Recommendation System</h1>
+                <div class="post-info">
+                    <span class="read-time">6 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">We've all been there. You finish a profound, gritty sci-fi book like Project Hail Mary and your streaming service recommends a campy 80s space opera. Or you watch a melancholic, character-driven film and are immediately served a slapstick comedy. Traditional recommendation engines are great for surface-level similarities (same genre, same actor) but they often miss the feel of what we're truly seeking.</p>
+                <p class="post-intro">I wanted to build something smarter. A system that doesn't just look at what you watched, but why you loved it. What was the mood? The underlying theme? The complexity?</p>
+                <p class="post-intro">So, I built a conversational AI recommendation engine that asks you questions and uses the powerful DeepSeek API to understand the nuance of your desires. Here’s how I did it.</p>
+
+                <div class="warning-box">
+                    <h3>Inspiration</h3>
+                    <p>Credit goes where credit is due, I took heavy inspiration from Netflix for the structuring of the recommendation system. Furthermore, I also took references for design and website theme from the official Ferrari website.</p>
+                </div>
+
+                <h2>The Criterias</h2>
+                <p>Before writing a single line of code, I defined the dimensions of a media recommendation that go beyond the basics. My system prompts the user for:</p>
+                <ul class="metrics-list">
+                    <li>Genre: The non-negotiable starting point (e.g., Sci-Fi, Romance, Noir).</li>
+                    <li>Key People: Specific authors, directors, or actors you're in the mood for.</li>
+                    <li>Mood: The emotional resonance, do you want something lighthearted, dark, thought-provoking, or thrilling?</li>
+                    <li>Themes: The big ideas, redemption, loss, technological singularity, love.</li>
+                    <li>Release Era: A specific decade or a preference for classic vs. modern.</li>
+                    <li>Complexity: How much mental energy do you have? Easy and fun or complex and challenging?</li>
+                </ul>
+
+                <h2>The Tool: Why DeepSeek?</h2>
+                <p>I needed an AI model that could excel in conversational understanding and text completion. The model had to be powerful enough to parse a user's unstructured, descriptive prompt and generate coherent, creative, and accurate recommendations.</p>
+                <p>DeepSeek's LLM (Large Language Model) is perfectly suited for this. It's incredibly adept at understanding context and intent within a conversation, making it ideal for simulating a natural, recommendation-seeking dialogue.</p>
+                <p>Here is a simple API key call for DeepSeek on Python:</p>
+
+                <div class="code-block">
+<pre><code>{
+    from openai import OpenAI
+
+    client = OpenAI(api_key="<DeepSeek API Key>", base_url="https://api.deepseek.com")
+
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "user", "content": "Hello"},
+        ],
+        stream=False
+    )
+
+    print(response.choices[0].message.content)
+}</code></pre>
+                </div>
+
+                <h2>Challenges & Learning</h2>
+                <ul>
+                    <h3>Prompt Engineering</h3>
+                    <p>The initial responses were verbose and didn't always follow the structure. Iterating on the system prompt—making it more explicit and demanding a strict JSON format—was crucial.</p>
+                    <h3>Handling Ambiguity</h3>
+                    <p>Sometimes a user's request is too vague (e.g., "something funny"). The next version will include a follow-up question mechanism to clarify.</p>
+                    <h3>Cost & Efficiency</h3>
+                    <p>Each API call has a cost. For a production app, you'd need to implement caching (e.g., storing common query results) to manage expenses.</p>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>This project proved that the future of discovery isn't in silent algorithms tracking our clicks, but in conversation. By leveraging the power of LLMs like DeepSeek's, we can build interfaces that understand the human nuance behind our search for stories.</p>
+                <p>The code I've shared is just a starting point. Imagine integrating this with databases like IMDb or Goodreads, or adding a voice interface. The possibilities are endless.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag media">Media</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>
