@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a ML Ops Dashboard for Small Teams</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="No more giant spreadsheets or 'it works on my machine'. My dashboard tracks model performance, latency, and data drift with just a Pickle file.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category mlops">ML Ops</span>
+                </div>
+                <h1 class="post-title">Building a ML Ops Dashboard for Small Teams</h1>
+                <div class="post-info">
+                    <span class="read-time">5 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">You’ve done it. You’ve trained a machine learning model that performs beautifully on your test set. You pickle it, hand it off, and celebrate. But then, the questions start creeping in like "how fast is it really in production?" or "How can we compare this new model to the old one?".</p>
+                <p class="post-intro">For small data science and engineering teams, full-blown ML Ops platforms like MLflow or Kubeflow can feel like overkill. But operating without any monitoring is like flying blind. I needed a solution that was lightweight, simple to deploy, and provided immediate value. So I built it.</p>
+                <p class="post-intro">I created a Python-based ML Ops dashboard that gives you crucial insights into your model's health—starting with just a .pkl file.</p>
+
+                <div class="warning-box">
+                    <h3>Some Surprising Findings</h3>
+                    <p>This ML Ops project for me was a lot more challenging than the previous Generative AI projects I had done previously. The more I think about it, the more it makes sense to me that ML Ops is an entirely different skillset which holds some resemblance to Gen AI but not all. This completely changed my outlook on the entire fields of AI and ML.<p>
+                </div>
+
+                <h2>Why ML Ops isn't just for Big Tech</h2>
+                <p>Machine Learning Operations (ML Ops) isn't about fancy tools; it's about answers to fundamental questions:</p>
+                <ul class="metrics-list">
+                    <li>Performance: Is the model's accuracy/precision/recall holding up in the real world?</li>
+                    <li>Latency: How long does it take to get a prediction? This is critical for user-facing applications.</li>
+                    <li>Data Drift: Has the statistical distribution of the incoming data changed from the data the model was trained on? This is a primary reason models become stale.</li>
+                </ul>
+                <p>My goal was to build a dashboard that answered these questions without requiring a dedicated infrastructure team to manage it.</p>
+
+                <h2>From Pickle to Dashboard</h2>
+                <p>The beauty of this system is its simplicity. The entry point is a single Pickle file, making it incredibly easy for teams to onboard their existing models. Here is how the data flows:</p>
+                <ul class="metrics-list">
+                    <li>Ingest: The dashboard loads the user's .pkl file, which contains the trained model and optionally a reference to the test dataset.</li>
+                    <li>Test: It runs a series of tests on the model. The key test involves making predictions on a held-out validation set or new, incoming production data.</li>
+                    <li>Measure: During the test predictions, it meticulously tracks metrics.</li>
+                </ul>
+
+                <h2>The Main Code</h2>
+                <p>This is the brain of the operation. It gets the model and then uploads it, making sure everything going smoothly.</p>
+
+                <div class="code-block">
+<pre><code>
+    app = FastAPI(title="MLOps Dashboard (MVP)")
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    # Static dashboard
+    static_dir = os.path.join(os.path.dirname(__file__), "static")
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+
+
+    @app.on_event("startup")
+    def on_startup() -> None:
+        ensure_dirs()
+
+
+    @app.get("/", response_class=HTMLResponse)
+    def index():
+        with open(os.path.join(static_dir, "index.html"), "r", encoding="utf-8") as f:
+            return HTMLResponse(f.read())
+
+
+    @app.get("/models", response_model=ModelsList)
+    def get_models():
+        return ModelsList(models=list_models())
+
+
+    @app.post("/models/upload", response_model=ModelMeta)
+    async def upload_model(
+        name: str = Form(...),
+        features_csv: str = Form(...),
+        model: UploadFile = File(...),
+    ):
+        if not model.filename.endswith((".pkl", ".pickle")):
+            raise HTTPException(status_code=400, detail="Only .pkl/.pickle files supported in MVP")
+        features = [f.strip() for f in features_csv.split(",") if f.strip()]
+        content = await model.read()
+        meta = save_uploaded_model(name=name, features=features, file_bytes=content)
+        return meta
+</code></pre>
+                </div>
+
+                <h2>Challenges and The Road Ahead</h2>
+                <ul>
+                    <li>Beyond a Single Model: The next step is to add model version comparison, allowing teams to see if a new model is truly better than the one in production.</li>
+                    <li>Integration: For true Ops, the dashboard needs to pull data directly from a live API endpoint or database, not just a static CSV. This would enable continuous monitoring.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>You don't need a massive platform to start practicing responsible ML Ops. This dashboard proves that with a few hundred lines of code, small teams can gain profound visibility into their models' behavior, catching issues before they impact users.</p>
+                <p>It’s about shifting left and bringing operational thinking into the development process early. By making it as simple as uploading a pickle file, we can help every team ensure their models are not just accurate, but also robust and reliable.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag mlops">ML Ops</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>

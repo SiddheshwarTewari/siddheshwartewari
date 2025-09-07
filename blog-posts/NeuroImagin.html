@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image AI: My Journey with OpenAI</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="My experience putting together an image generator using OpenAI's DALL-E model.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category image">Image</span>
+                </div>
+                <h1 class="post-title">Text to Image AI: My Journey with OpenAI</h1>
+                <div class="post-info">
+                    <span class="read-time">4 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">There's a special kind of magic in typing a sentence like "a cyberpunk cat drinking coffee in a rainy neon alley" and watching an AI bring it to life. Generative AI for images, like OpenAI's DALL-E, has exploded in popularity, but I wanted to build my own personal gateway to that magic, a clean, simple interface that focuses purely on the joy of creation.</p>
+                <p class="post-intro">The goal was straightforward: a text box for a prompt, a button to generate, and a gallery to display the results. But the most critical requirement was security. If users provided their own OpenAI API key, it had to be a temporary, client-side secret, vanishing without a trace when they left the page.</p>
+                <p class="post-intro">The result is a sleek, secure, and satisfying image generator built with the DALL-E API.</p>
+
+                <div class="warning-box">
+                    <h3>Multimodal</h3>
+                    <p>In the process of creating a text to image AI generator, it made me admire multimodal AI models just so much more. The complexity and the thought process required for just one type of output model is immense, imagine multiplying that by several times for a multimodal AI.</p>
+                </div>
+
+                <h2>The Design: Why DALL-E and Client Side App?</h2>
+                <p>OpenAI's DALL-E is one of the most powerful and reliable text-to-image models available. Its API is well-documented and produces consistently high-quality results.</p>
+                <p>Just like with the chatbot, I chose a client-side architecture. This means:</p>
+                <ul class="metrics-list">
+                    <li>No Backend Server: There's no server cost for me and no data liability.</li>
+                    <li>Direct Communication: Your browser talks directly to OpenAI's API over HTTPS.</li>
+                    <li>Ephemeral Key Storage: Your API key is stored only in your browser's temporary memory and is wiped when you close the tab.</li>
+                </ul>
+                <p>This approach puts you in complete control of your API key and your usage.</p>
+
+                <h2>The Main Build</h2>
+                <p>The OpenAI call I used in Javascript was the same one as provided in their FAQ, helping me connect to their model effectively.</p>
+
+                <div class="code-block">
+<pre><code>
+  connectButton.addEventListener('click', function() {
+                apiKey = apiKeyInput.value.trim();
+                
+                if (!apiKey) {
+                    showError("Please enter a valid OpenAI API key");
+                    return;
+                }
+                
+                if (!apiKey.startsWith('sk-')) {
+                    showError("API key should start with 'sk-'");
+                    return;
+                }
+                
+                // Test the API key with a simple request
+                connectButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing Connection...';
+                
+                fetch('https://api.openai.com/v1/models', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${apiKey}`
+                    }
+                }))
+                    
+</code></pre>
+                </div>
+
+                <h2>Security and Important Considerations</h2>
+                <ul>
+                    <h3>Client-Side Key Management</h3>
+                    <p>The API key is sent directly from the user's browser to OpenAI. It is never stored on my server. This is the core of the security model.</p>
+                    <h3>Image Quality and Usage</h3>
+                    <p>It is crucial to inform users that they are using their own API credits. DALL-E generation costs money per image, and users need to be aware of this.</p>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Building this image generator was incredibly rewarding. It demystifies the process of working with powerful AI APIs and puts creative power directly into the user's hands. The combination of a simple interface and a robust, secure architecture makes it a perfect example of how accessible generative AI has become.</p>
+                <p>The potential for customization is endless: you could add options for image size, style, add a download button, or even create prompt templates.</p>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag image">Image</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>

@@ -1782,6 +1782,12 @@ https://templatemo.com/tm-594-nexus-flow
             border: 1px solid var(--secondary-amber);
         }
 
+        .log-category.mlops {
+            background: rgba(244, 63, 94, 0.1); 
+            color: var(--tag-cybersecurity-color, #f43f5e);
+            border: 1px solid var(--tag-cybersecurity-color, #f43f5e);
+        }
+
         .log-category.chatbot {
             background: rgba(34, 197, 94, 0.1); 
             color: var(--primary-green, #22c55e);
@@ -1794,7 +1800,7 @@ https://templatemo.com/tm-594-nexus-flow
             border: 1px solid var(--primary-pink);
         }
 
-        .log-category.quantum {
+        .log-category.image {
             background: rgba(124, 58, 237, 0.1);
             color: var(--primary-purple);
             border: 1px solid var(--primary-purple);
@@ -2008,10 +2014,16 @@ https://templatemo.com/tm-594-nexus-flow
             letter-spacing: 1px;
         }
 
-        .tag.quantum {
+        .tag.image {
             background: rgba(124, 58, 237, 0.2);
             color: var(--primary-purple);
             border: 1px solid var(--primary-purple);
+        }
+
+        .tag.mlops {
+            background: rgba(244, 63, 94, 0.1); 
+            color: var(--tag-cybersecurity-color, #f43f5e);
+            border: 1px solid var(--tag-cybersecurity-color, #f43f5e);
         }
 
         .tag.neuro {

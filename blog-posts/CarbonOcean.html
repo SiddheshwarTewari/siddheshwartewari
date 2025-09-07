@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built CarbonOcean to Visualize Maritime Emissions</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="With the help of Python and Streamlit, I created a tool to make the complex world of shipping emissions transparent and actionable for everyone.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                </div>
+                <h1 class="post-title">How I Built CarbonOcean to Visualize Maritime Emissions</h1>
+                <div class="post-info">
+                    <span class="read-time">4 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">If you’ve ever received a package from across the globe, you've benefited from the maritime shipping industry, the backbone of global trade. But this convenience comes with an invisible cost: it's a massive contributor to global carbon emissions, often operating out of sight and out of mind for the average consumer.</p>
+                <p class="post-intro">The data to understand this impact exists, but it’s trapped in complex spreadsheets and daunting databases, accessible only to data scientists and specialists. Regular people lacking such experience or expertise also need a clearer view to make informed decisions.</p>
+                <p class="post-intro">I built CarbonOcean to change that. It’s an open-source, interactive web app that transforms raw maritime emissions data into clear, intuitive visualizations. My goal was simple: to make the environmental impact of shipping transparent, understandable, and actionable for everyone.</p>
+
+                <div class="warning-box">
+                    <h3>Data</h3>
+                    <p>The martime shipping emission data being used is done via an Excel/csv file and the AI model is trained on that data. If you would like to look at another year or have more accurate data, all that needs to be done is to simply replace the file being studied.</p>
+                </div>
+
+                <h2>The Mission: From Raw Data to Clear Insight</h2>
+                <p>The core problem CarbonOcean solves is accessibility. The questions we need to answer are straightforward, but the path to the answers is not, such as "How does shipping emissions differ between countries" or "Based on the data, what can we expect the trend of carbon emissions to look like in the future".</p>
+                <p>CarbonOcean provides an interface to answer these questions without writing a single line of code. It’s designed for everyone from researchers to regular people interested in shipping and carbon emissions.</p>
+                
+                <h2>The Toolbox: Why Streamlit was the Perfect Choice</h2>
+                <p>I needed a framework that could go from a Python script to a shareable web app with minimal friction. Streamlit was the obvious choice because it:</p>
+                <ul class="metrics-list">
+                    <li>Turns Data into Web Apps Instantly: It seamlessly integrates with the PyData stack (Pandas, NumPy, Plotly) I use for data processing and visualization.</li>
+                    <li>Is Intuitively Interactive: With built-in widgets like sliders and dropdowns, users can explore data on the fly, creating a dynamic experience.</li>
+                    <li>Requires No Front-End Code: I could focus 100% on the data logic and user experience without getting bogged down in HTML, CSS, or JavaScript.</li>
+                </ul>
+
+                <h2>A Look Under the Hood: How CarbonOcean Works</h2>
+                <P>Lets walk through a basic outline of the code and the functions involved in the app making.</P>
+                <h3>Step 1: Data Loading and Management</h3>
+                <p>The app starts by loading emissions data, which could be from sources like the International Maritime Organization (IMO) or European Union Monitoring, Reporting, and Verification (EU MRV) data.</p>
+
+                <div class="code-block">
+<pre><code>
+  def main():
+
+    st.markdown("""
+    div class="main-header"
+        h1 class="main-title">Carbon Ocean h1
+        p class="subtitle">Maritime Emissions Intelligence System p
+    div
+    """, unsafe_allow_html=True)
+    
+    data_processor = DataProcessor()
+    
+    default_files = [
+        "Global Shipping Emmissions.xlsx"
+    ]
+    
+    df = None
+    for file_path in default_files:
+        if os.path.exists(file_path):
+            try:
+                df = data_processor.load_and_clean_data(file_path)
+                break
+            except:
+                continue
+</code></pre>
+                </div>
+
+                <h3>Step 2: Creating the Interactive Dashboard</h3>
+                <p>The UI is built with Streamlit's simple commands making it highly interactive to design and implement.</p>
+
+                <div class="code-block">
+<pre><code>
+  pivot_data = df.pivot_table(values='Emissions', index='Country', columns='Year', aggfunc='sum', fill_value=0)
+    top_15_countries = df.groupby('Country')['Emissions'].sum().nlargest(15).index
+    pivot_data = pivot_data.loc[top_15_countries]
+    
+    fig_heatmap = go.Figure(data=go.Heatmap(
+        z=pivot_data.values,
+        x=pivot_data.columns,
+        y=pivot_data.index,
+        colorscale=[[0, '#000033'], [0.25, '#00FFFF'], [0.5, '#FF00FF'], [0.75, '#FFFF00'], [1, '#00FF00']],
+        hoverongaps=False,
+        hovertemplate='b %{y} b br b Year: b %{x} br b Emissions: b %{z:,.0f} extra extra'
+    ))
+    
+    fig_heatmap.update_layout(
+        title=dict(text="EMISSION INTENSITY MATRIX", font=dict(color='#FFFF00', size=20, family='Orbitron')),
+        plot_bgcolor='rgba(0,0,0,0.8)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#E0E6ED', family='Rajdhani'),
+        height=500
+    )
+    
+    return fig_timeline, fig_top, fig_heatmap
+</code></pre>
+                </div>
+
+                <h2>Challenges and the Future of CarbonOcean</h2>
+                <ul class="metrics-list">
+                    <li>Data Acquisition: The biggest challenge is sourcing clean, comprehensive, and up-to-date public data. Future versions will aim to integrate live data feeds.</li>
+                    <li>From Visualization to Action: The next step is to add features like "what-if" scenarios (e.g., "What if 20% of ships on this route adopted green ammonia?").</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>CarbonOcean is more than a dashboard; it’s a democratization of knowledge. By making maritime emissions data accessible and visually compelling, we can foster a more informed public discourse and hold stakeholders accountable.</p>
+                <p>The climate challenge is vast, but it can be broken down into understandable parts. Tools like CarbonOcean help us do that, charting a data-driven course toward a more sustainable future for global shipping.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>
