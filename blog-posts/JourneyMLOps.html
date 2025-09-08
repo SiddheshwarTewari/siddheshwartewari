@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey Learning ML Ops as an AI Student </title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="AI is all about how to build accurate models, but that is only half the battle.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category mlops">ML Ops</span>
+                </div>
+                <h1 class="post-title">My Journey Learning ML Ops as an AI Student</h1>
+                <div class="post-info">
+                    <span class="read-time">6 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">I remember the pride I felt after training my first "production-ready" model in university. It was a convolutional neural network for image classification. The accuracy on the test set was a respectable 95%. I saved it as final_final_model_v3.pkl, sent the file to my professor, and considered my job done.</p>
+                <p class="post-intro">Then, a simple question shattered that illusion: "Great, but how would someone actually use this?".</p>
+                <p class="post-intro">I had no answer. My "production-ready" model lived on my laptop, trapped in a pickle file, completely useless to anyone else. That moment was my first, clumsy step into the vast and chaotic world of Machine Learning Operations (ML Ops).</p>
+
+                <h2>The University Curriculum vs. The Real World</h2>
+                <p>My own experiences and studies in AI gave me an incredible foundation. I became proficient in all aspects of AI, from math to supervised/unsupervised learning to modeling using Scikit-learn, TensorFlow, and Pytorch.</p>
+                <p>However, the University curriculum, my own internships/experience, and practice ended at the evaluation metric, I never dived deep into what comes next.</p>
+                <p>As I thought about this, questions began to raise in my mind, such as "How do you serve this model to millions of users?" or "How do you ensure the model remains accurate as real-world data changes?"</p>
+                <p>MLOps is the answer to all these questions. It's the engineering discipline of taking ML models from a Jupyter Notebook to a live, reliable, and scalable service.</p>
+                
+                <h2>My Self-Taught MLOps Curriculum: The Four Pillars</h2>
+                <p>I began structuring my own learning. I broke MLOps down into four key pillars that became my personal syllabus.</p>
+                <ul class="metrics-list">
+                    <li>Packaging and Deployment: From .pkl to API</li>
+                    <li>Versioning: More Than Just final_v3.pkl</li>
+                    <li>Monitoring: The Model is Deployed. Now What?</li>
+                    <li>The CI/CD Pipeline: Automation is Key</li>
+                </ul>
+
+                <h2>Packaging and Deployment</h2>
+                <p>The first step was learning how to free my model from my laptop. I learned about:<p>
+                <ul class="metrics-list">
+                    <li>Web Frameworks: Building simple REST APIs with FastAPI and Flask. Suddenly, my model could be accessed over the internet. A simple POST request with data would return a prediction.</li>
+                    <li>Containers: Packaging my API and model into a Docker container. This became the standardized unit of deployment I could ship anywhere.</li>
+                </ul>
+
+                <h2>Versioning</h2>
+                <p>I quickly realized that final_v3.pkl was a terrible naming convention. I needed to version everything:<p>
+                <ul class="metrics-list">
+                    <li>Model Versioning: Tools like MLflow or DVC (Data Version Control) helped me track which model version (and its associated metrics) was deployed.</li>
+                    <li>Data Versioning: Often overlooked. I used DVC to version my training datasets, so I could always reproduce an old model exactly.</li>
+                </ul>
+
+                <h2>Monitoring</h2>
+                <p>Deploying the model wasn't the finish line; it was the starting line. I built a simple dashboard to track:<p>
+                <ul class="metrics-list">
+                    <li>Latency: How long does it take to get a prediction? Users won't wait 10 seconds.</li>
+                    <li>Throughput: How many predictions per second can my API handle?</li>
+                    <li>Data Drift: Is the live data starting to look different from the data I trained on? This is a silent killer of model accuracy.</li>
+                    <li>Model Performance: In projects where I could get ground truth data later, I tracked accuracy over time to see if the model was decaying.</li>
+                </ul>
+
+                <h2>The CI/CD Pipeline</h2>
+                <p>The final piece was automation. I used GitHub Actions to create a simple pipeline:<p>
+                <ul class="metrics-list">
+                    <li>On a Git push, it would automatically run my tests.</li>
+                    <li>If tests passed, it would build a new Docker image.</li>
+                    <li>It would then deploy the new image to a cloud service like Heroku.</li>
+                </ul>
+
+                <h2>Key Takeaways for Other Students</h2>
+                <ul>
+                    <li>Start Small: You don't need Kubernetes. Start by turning a simple Scikit-learn model into a local API with Flask.</li>
+                    <li>Embrace DevOps: MLOps is fundamentally DevOps for machine learning. Learn the basics of Docker, Git, and CI/CD. They are force multipliers.</li>
+                </ul>
+
+                <h2>Conclusion: The Important Lesson</h2>
+                <p>My journey into MLOps taught me that the most important metric isn't accuracy; it's impact.</p>
+                <p>A 95% accurate model that is deployed, reliable, and used by people is infinitely more valuable than a 99% accurate model trapped in a notebook. As I finish my degree and look towards my career, I'm no longer just a student of machine learning. I'm learning to be an engineer who builds systems that learn.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag mlops">ML Ops</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>

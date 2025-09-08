@@ -1794,6 +1794,12 @@ https://templatemo.com/tm-594-nexus-flow
             border: 1px solid var(--primary-green, #22c55e);
         }
 
+        .log-category.housing {
+            background: rgba(251, 146, 60, 0.1); 
+            color: var(--tag-media-color, #fb923c);
+            border: 1px solid var(--tag-media-color, #fb923c);
+        }
+
         .log-category.neuro {
             background: rgba(255, 0, 255, 0.1);
             color: var(--primary-pink);
@@ -2024,6 +2030,12 @@ https://templatemo.com/tm-594-nexus-flow
             background: rgba(244, 63, 94, 0.1); 
             color: var(--tag-cybersecurity-color, #f43f5e);
             border: 1px solid var(--tag-cybersecurity-color, #f43f5e);
+        }
+
+        .tag.housing {
+            background: rgba(251, 146, 60, 0.1); 
+            color: var(--tag-media-color, #fb923c);
+            border: 1px solid var(--tag-media-color, #fb923c);
         }
 
         .tag.neuro {

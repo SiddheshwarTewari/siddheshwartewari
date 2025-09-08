@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Home Prices using AI</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Turning spreadsheets of market data into future predictions.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category housing">Housing</span>
+                </div>
+                <h1 class="post-title">Predicting Home Prices using AI</h1>
+                <div class="post-info">
+                    <span class="read-time">4 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">Searching for an apartment is a special kind of modern agony. You’re faced with a chaotic mix of listing sites, conflicting advice, and a sinking feeling that you’re about to make the most expensive decision of your year based on a gut feeling. Is now a good time to sign a lease? Should I wait? Is that price in Austin actually a deal, or am I about to be fleeced?</p>
+                <p class="post-intro">As a data student, I saw this not as a personal crisis, but as a data problem. The signals are all there, employment rates, new building permits, migration trends, they’re just trapped in dry government CSV files and Excel spreadsheets. I wanted to free that data, give it a voice, and let it speak to the uncertainty every renter feels.</p>
+                <p class="post-intro">So I built Neo-Rent CyberOracle: a cyberpunk-styled web app that doesn’t just show you current rents, but projects future costs, calculates risk, and gives you the data-driven confidence to make your next move.</p>
+
+                <div class="warning-box">
+                    <h3>Note on Data</h3>
+                    <p>The AI model and the data being used in this project is from the past, therefore, it becomes more inaccurate as time passes and better models are released. As better AI models and more accurate/new data become available, it is important to change the Excel/csv file being used as data to form better predictions. Use this tool as a stepping stone rather than something to base decisions from.</p>
+                </div>
+
+                <h2>The Vision: More Than a Calculator, An Affordability Dashboard</h2>
+                <p>I took heavy inspiration from existing platforms such as Zillow in order to shape and build my own model. I combined my love for AI with data structuring in Zillow.</p>
+                <ul>
+                    <li>Trend Projection: Where will rents be in 6, 12, or 18 months in this state?</li>
+                    <li>Volatility Assessment: Is this a stable market or a speculative bubble?</li>
+                    <li>Location Comparison: How does the affordability of a 1-bedroom in Texas really compare to one in Florida when you factor in local wages?</li>
+                </ul>
+
+                <h2>The Tech Stack: From CSV to Cyber-Style</h2>
+                <p>The project needed a powerful backend for number crunching and a stylish, interactive frontend. The choice was clear:<p>
+                <ul class="metrics-list">
+                    <li>Backend (The Brain): Python with Pandas for data munging, Scikit-learn for building the predictive models (likely starting with Linear Regression, Random Forests, or Gradient Boosting on historical data), and Statsmodels for time-series analysis.</li>
+                    <li>Frontend (The Interface): Streamlit. It was the perfect conduit to turn my Python scripts into an interactive web app instantly. Its component-based model made it easy to build the dashboard layout I needed.</li>
+                    <li>Styling (The Soul): Custom CSS to inject the cyberpunk aesthetic. Think dark themes, neon gradients (cyan and magenta), glows, and futuristic fonts.</li>
+                </ul>
+
+                <h2>The Data Pipeline: Feeding the Oracle</h2>
+                <p>The core of the project is the data. The pipeline follows a clear flow:<p>
+                <ul class="metrics-list">
+                    <li>Ingest: The app starts by loading a pre-cleaned CSV/Excel file. This file is the "knowledge base," containing historical rent prices and the key predictive features such as unemployment rates, housing supply, job numbers, etc.</li>
+                    <li>Train & Predict: My Python backend uses this data to train a model (or multiple models) to find the relationship between the features (e.g., unemployment rate) and the target (rent price). It then generates forecasts for future time periods.</li>
+                    <li>Calculate Metrics: The app calculates the ancillary metrics such as affordability, volatility, and risks.</li>
+                </ul>
+
+                <h2>Challenges & Last Thoughts</h2>
+                <ul>
+                    <li>Data Quality and Consistency: Finding reliable, consistent, and frequent data for all 50 states is the single biggest hurdle. It requires a lot of data cleaning and feature engineering.</li>
+                    <li>Model Uncertainty: Predicting the future is inherently risky. A key part of the project was learning to communicate this uncertainty through metrics like Volatility Rating and prediction intervals on the charts, rather than presenting a single, definitive number.</li>
+                </ul>
+
+                <p></p>
+                <p>In the end, it is important to frame your predictions using massive amounts of data, this helps guard against uncertainty and push prediction rates as close to perfection as possible.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag housing">Housing</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Prompt Engineering</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="I learned that talking to AI isn't about typing commands, it's about learning a new language of thought.">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../papers.html">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post">
+        <div class="post-container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[2025-09-02]</span>
+                    <span class="post-category ai">AI</span>
+                </div>
+                <h1 class="post-title">The Art of Prompt Engineering</h1>
+                <div class="post-info">
+                    <span class="read-time">4 min read</span>
+                    <span class="author">By Sid Tewari</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">My first interaction with a large language model was… underwhelming. I typed a command like I was talking to a stubborn search engine: "summary article climate change."</p>
+                <p class="post-intro">The result was a generic, bland paragraph that felt like it was copied from a middling high school essay. I was disappointed. Was this the revolutionary AI I’d heard so much about?</p>
+                <p class="post-intro">Then, I saw someone online generate a breathtaking piece of poetry, a functional code snippet, and a detailed business plan, all from the same tool. The difference wasn't the AI; it was the human. The difference was prompt engineering.</p>
+
+                <h2>Phase 1: The Keyword Bully (And Why It Failed)</h2>
+                <p>My initial approach was what I now call "The Keyword Bully." I’d keep shouting the same words, louder and with more urgency, in a single line:</p>
+                <ul>
+                    <li>Write a story.</li>
+                    <li>Write a GOOD story.</li>
+                    <li>Write a LONG, GOOD story about a dragon.</li>
+                </ul>
+                <p></p>
+                <p>The results were slightly better, but still mediocre. The stories were cliché, the dragon was straight out of a cartoon, and the prose was flat. I was treating the AI like a vending machine: press button, get snack. But this wasn't a vending machine; it was a collaborative partner that needed context.</p>
+                <p>Lesson Learned: Specificity is not about adding more adjectives; it's about providing a framework for creativity.</p>
+
+                <h2>Phase 2: Discovering the Power of Context and Persona</h2>
+                <p>The breakthrough came when I stumbled upon the concept of role-playing. Instead of asking for a story, I started to set the stage. I learned how to write prompts like:</p>
+
+                <div class="code-block">
+<pre><code>
+  "You are a renowned fantasy author known for your gritty, realistic worlds and morally complex characters. 
+   Write the first chapter of a novel about a dragon who is the last guardian of a magical forest that is being destroyed by humans. 
+   Focus on the dragon's internal conflict between its peaceful nature and its duty to protect its home."
+</code></pre>
+                </div>
+
+                <p>The result was night and day. The AI’s output suddenly had voice, tone, and nuance. It understood the assignment because I had finally given it a proper brief. I wasn't just asking for what; I was defining the who, the how, and the why.</p>
+                <p>Lesson Learned: Assigning a persona to the AI is the single biggest lever for improving output quality. You are the director, and the AI is the world's most versatile actor.</p>
+
+                <h2>Phase 3: The Technical Leap</h2>
+                <p>Chain-of-Thought: I learned that for complex reasoning, you must ask the AI to think step-by-step.</p>
+                <ul class="metrics-list">
+                    <li>Bad Prompt: Solve: A bakery sold 78 cookies in one day. If they sold 3 times as many chocolate chip as oatmeal raisin, and 10 more sugar cookies than oatmeal raisin, how many of each did they sell?</li>
+                    <li>Good Prompt: Let's solve this problem step by step. Let O be the number of oatmeal raisin cookies. Then, the number of chocolate chip is 3O. The number of sugar cookies is O + 10. The total is O + 3O + (O + 10) = 78. Now, solve for O. [continue]...</li>
+                </ul>
+                <p>Lesson Learned: Prompt engineering is software engineering for the mind. You are architecting a thought process.</p>
+
+                <h2>Phase 4: The Ethical Dimension</h2>
+                <p>With great power comes great responsibility. I began to see the dark side. I learned how easily prompts could be manipulated to bypass safety filters ("jailbreaking") or could subtly reinforce biases by how they were framed.</p>
+                <p>I made a rule for myself: Don't prompt for anything you wouldn't want to see on the front page of a newspaper. I shifted from trying to "break" the AI to trying to elicit its most helpful, harmless, and honest self.</p>
+                <ul class="metrics-list">
+                    <li>Set boundaries: "Provide a balanced overview of [topic], citing arguments from multiple reputable sources."</li>
+                    <li>Encourage uncertainty: "If you are not 95% confident of the answer, please state that you are unsure."</li>
+                    <li>Cite sources: "When providing information, please include links or citations to reputable sources where possible."</li>
+                </ul>
+                <p>Lesson Learned: The prompt engineer is a guardian of truth and ethics, not just a maximizer of output.</p>
+
+                <h2>Conclusion: Its a Conversation, not a Command</h2>
+                <p>I used to think prompt engineering was about finding the "magic words" to trick the AI into giving a good answer. I was wrong.</p>
+                <p>I’ve learned it’s the opposite. It's about clear, structured, and empathetic communication. It's about reducing ambiguity and building a shared understanding. It's a skill that makes me not just a better AI user, but a better thinker, writer, and collaborator.</p>
+            </div>
+
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share this transmission:</span>
+                    <a href="#" class="share-button">Neural</a>
+                    <a href="#" class="share-button">Quantum</a>
+                    <a href="#" class="share-button">BrainNet</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    </body>
+    </html>
