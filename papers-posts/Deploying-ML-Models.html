@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying Machine Learning Models: A Comparative Study of Flask, FastAPI, and Streamlit</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements (reuse global theme) -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Paper Post Layout -->
+    <article class="blog-post paper-post">
+        <div class="post-container">
+            <!-- Header / Metadata -->
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[08-17-2025]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category mlops">ML Ops</span>
+                </div>
+                <h1 class="post-title">Deploying Machine Learning Models: A Comparative Study of Flask, FastAPI, and Streamlit</h1>
+                <div class="post-info">
+                    <span class="author">By Sid Tewari<sup></span>
+                    <span class="read-time">~ 4 pages</span>
+                </div>
+                <div class="post-info">
+                    <span>Affiliation: University of Washington, Seattle </span>
+                </div>
+                <!--<div class="post-info">
+                    <span>DOI: 10.xxxx/xxxxx • arXiv:xxxx.xxxxx • License: CC BY 4.0</span>
+                </div>-->
+            </header>
+
+            <!-- Abstract / Keywords -->
+            <section id="abstract" class="post-content">
+                <h2>Abstract</h2>
+                <p class="post-intro">Deployment of machine learning (ML) models into production environments is a critical stage of the machine 
+                    learning lifecycle. A variety of frameworks exist to facilitate serving models as APIs or interactive applications, with Flask, 
+                    FastAPI, and Streamlit emerging as popular tools among practitioners. This paper presents a comparative study of these three 
+                    frameworks based on performance, ease of use, scalability, and developer experience. Through systematic benchmarking and 
+                    qualitative analysis, I highlight their trade-offs and provide recommendations for practitioners seeking efficient and scalable 
+                    ML deployment solutions.
+                </p>
+            </section>
+
+            <!-- Optional: Table of Contents -->
+            <aside class="post-content" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ol class="toc-list">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#related-work">Related Work</a></li>
+                    <li><a href="#methods">Methology</a></li>
+                    <li><a href="#results">Experimental Setup</a></li>
+                    <li><a href="#discussion">Results & Discussion</a></li>
+                    <li><a href="#conclusion">Conclusion & Future Work</a></li>
+                    <li><a href="#references">References</a></li>
+                </ol>
+            </aside>
+
+            <!-- Main Sections -->
+            <section id="introduction" class="post-content">
+                <h2>1. Introduction</h2>
+                <p>As machine learning has matured from research prototypes to real-world applications, model deployment has become an essential step for 
+                    bridging the gap between data science teams and production systems as per Sculley David. Without deployment, 
+                    models remain static artifacts, disconnected from the environments where they can generate value. Effective deployment requires not only 
+                    exposing models via APIs or user interfaces, but also ensuring maintainability, reproducibility, and scalability.
+                </p>
+                
+                <p>Grinberg, an author specializing in ML model deployments stated that Flask, FastAPI, and Streamlit have gained traction as lightweight yet 
+                    powerful frameworks for ML model serving. Flask is a micro web framework offering flexibility and extensibility. FastAPI, a modern Python 
+                    framework, emphasizes high performance with asynchronous support as per the documentation of FastAPI. Streamlit, in contrast, 
+                    focuses on rapid prototyping and interactive visualization for data scientists without requiring web development expertise as stated in the 
+                    Streamlit FAQ page.
+                </p>
+
+                <p>This study aims to compare these frameworks systematically to provide practical guidance for data scientists, ML engineers, and researchers 
+                    making deployment decisions.
+                </p>
+            </section>
+
+            <section id="related-work" class="post-content">
+                <h2>2. Related Work</h2>
+                <p>Model deployment is closely tied to the discipline of Machine Learning Operations (MLOps), which integrates DevOps principles with the ML lifecycle 
+                    according to Kreuzberger. The growing emphasis on reproducibility and continuous integration has led to significant research on containerization, 
+                    orchestration, and monitoring. However, the choice of serving framework is often treated as a secondary concern, left to individual developer preference.
+                </p>
+                <p>Prior studies have examined performance differences among web frameworks in general contexts, but fewer works specifically investigate how such frameworks 
+                    interact with machine learning workflows. Moreover, while industrial white papers discuss best practices in ML deployment, empirical comparisons between 
+                    lightweight frameworks such as Flask, FastAPI, and Streamlit remain scarce. This paper seeks to fill that gap by providing systematic benchmarks and a 
+                    structured analysis of trade-offs.
+                </p>
+            </section>
+
+            <section id="methods" class="post-content">
+                <h2>3. Methology</h2>
+                <p>I evaluate Flask, FastAPI, and Streamlit across four criteria that reflect common requirements for ML deployment:</p>
+                <ul>
+                    <li>Performance: Response time and throughput under concurrent requests.</li>
+                    <li>Ease of Use: Learning curve, documentation quality, and required code complexity.</li>
+                    <li>Scalability: Ability to handle production-grade workloads, particularly under high concurrency.</li>
+                    <li>Developer Experience: Debugging, integration with ML libraries, and deployment workflow simplicity.</li>
+                </ul>
+                <p></p>
+                <p>A simple ML model (logistic regression for text classification) is deployed in each framework. To ensure fairness, identical pre-trained models are used, and 
+                    API endpoints are designed with equivalent input/output formats. Performance is tested using Apache Benchmark with varying levels of concurrent requests.
+                </p>
+                <p>Qualitative evaluation was also conducted. I recorded developer observations on time to initial deployment, difficulty of integrating the model pipeline, and 
+                    flexibility for adding monitoring or logging features.
+                </p>
+
+            <section id="results" class="post-content">
+                <h2>4. Experimental Setup</h2>
+                <p>All experiments were conducted on a machine with 16GB RAM, Intel i7 processor, and Ubuntu 22.04. Each framework was configured with default settings. Flask 
+                    applications were served with Gunicorn, FastAPI with Uvicorn, and Streamlit using its built-in server. Performance was evaluated under 50, 100, and 500 
+                    concurrent requests, simulating small-scale to moderate workloads.
+                </p>
+                <p>In addition, ease of use was assessed by measuring the number of lines of code required for minimal deployment. Documentation quality was evaluated based on 
+                    availability of ML-specific tutorials, examples, and community support.
+                </p>
+
+            </section>
+
+            <section id="discussion" class="post-content">
+                <h2>5. Results & Discussion</h2>
+                <h3>5.1 Performance</h3>
+                <p>My findings indicate that FastAPI consistently outperforms Flask and Streamlit in terms of latency and throughput due to its asynchronous capabilities. 
+                    Under 500 concurrent requests, FastAPI maintained sub-50ms response times, while Flask’s response times increased substantially. Streamlit was unsuitable for 
+                    concurrent API-style workloads, as its design emphasizes interactive dashboards rather than high-throughput endpoints.
+                </p>
+                <h3>5.2 Ease of Use</h3>
+                <p>In terms of ease of use, Streamlit emerged as the most beginner-friendly option. A model could be deployed with fewer than 20 lines of Python code, and no knowledge 
+                    of HTML or JavaScript was required. Flask and FastAPI required more boilerplate, though FastAPI’s automatic documentation via OpenAPI provided a smoother developer 
+                    experience for building APIs.
+                </p>
+                <h3>5.3 Scalability</h3>
+                <p>Flask has been widely adopted in production systems and benefits from a mature ecosystem of extensions. However, it lacks native asynchronous support, limiting scalability 
+                    in high-concurrency scenarios. FastAPI addresses this gap with built-in async functionality, making it highly scalable for real-time ML inference services. Streamlit is 
+                    better suited for small-scale applications, rapid prototyping, and demos, rather than heavy production workloads.
+                </p>
+                <h3>5.4 Developer Experience</h3>
+                <p>Flask offers maximal flexibility but requires manual integration of libraries for monitoring, authentication, and testing. FastAPI balances flexibility with developer 
+                    convenience, providing type hints, validation, and built-in async support. Streamlit sacrifices flexibility in favor of accessibility, enabling non-engineers to build interactive 
+                    interfaces with minimal code.
+                </p>
+            </section>
+
+            <section id="conclusion" class="post-content">
+                <h2>6. Conclusion & Future Work</h2>
+                <p>This paper has presented a comparative analysis of Flask, FastAPI, and Streamlit for ML model deployment. While FastAPI emerges as the most performant option, the choice of framework 
+                    ultimately depends on the specific use case and developer expertise. Flask remains a reliable general-purpose option for web applications, whereas Streamlit excels in rapid 
+                    prototyping and visualization.
+                </p>
+                <p>Future work will expand benchmarking to include containerized deployments with Docker, orchestration systems such as Kubernetes, and real-world case studies on cloud platforms. 
+                    Additionally, further research could incorporate advanced monitoring and explainability tools to assess how well each framework integrates with modern MLOps practices.
+                </p>
+            </section>
+
+            <section id="references" class="post-content">
+                <h2>References</h2>
+                    <li>[1] M. Grinberg, "Flask Web Development: Developing Web Applications with Python", O'Reily Media 2018</li>
+                    <li>[2] FastAPI Documentation, "FastAPI Documentation", FastAPI 2023</li>
+                    <li>[3] Streamlit Documentation, "Streamlit Inc.", Streamlit 2022</li>
+                    <li>[4] D. Sculley et al., “Hidden Technical Debt in Machine Learning Systems,” NIPS 2015.</li>
+                    <li>[5] D. Kreuzberger, "Machine Learning Operations (MLOps): Overview, Definition, and Architecture", ACM 2023</li>
+            </section>
+
+            <!-- Footer: Sharing / Tags (reuse blog styles) -->
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share:</span>
+                    <a href="#" class="share-button">PDF</a>
+                    <a href="#" class="share-button">BibTeX</a>
+                    <a href="#" class="share-button">Cite</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag mlops">ML Ops</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

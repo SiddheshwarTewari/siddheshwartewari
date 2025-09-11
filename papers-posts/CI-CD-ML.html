@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD in Machine Learning: Case Study of Automating Model Retraining and Deployment</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements (reuse global theme) -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Paper Post Layout -->
+    <article class="blog-post paper-post">
+        <div class="post-container">
+            <!-- Header / Metadata -->
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[09-05-2025]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category mlops">ML Ops</span>
+                </div>
+                <h1 class="post-title">CI/CD in Machine Learning: Case Study of Automating Model Retraining and Deployment</h1>
+                <div class="post-info">
+                    <span class="author">By Sid Tewari<sup></span>
+                    <span class="read-time">~ 5 pages</span>
+                </div>
+                <div class="post-info">
+                    <span>Affiliation: University of Washington, Seattle </span>
+                </div>
+                <!--<div class="post-info">
+                    <span>DOI: 10.xxxx/xxxxx • arXiv:xxxx.xxxxx • License: CC BY 4.0</span>
+                </div>-->
+            </header>
+
+            <!-- Abstract / Keywords -->
+            <section id="abstract" class="post-content">
+                <h2>Abstract</h2>
+                <p class="post-intro">The rapid adoption of machine learning (ML) in production environments has highlighted the 
+                    importance of continuous integration and continuous deployment (CI/CD) practices for sustaining model 
+                    quality and reliability. Unlike traditional software, ML systems face unique challenges such as data 
+                    drift, retraining requirements, and pipeline reproducibility. In this paper, I present a case study 
+                    implementing an automated CI/CD pipeline for machine learning that integrates data preprocessing, model 
+                    training, validation, containerization, and deployment. Using GitHub Actions for CI and Docker-based deployment 
+                    with FastAPI, I demonstrate a reproducible workflow for retraining and redeploying a classification model when 
+                    new data arrives. My results show significant improvements in deployment speed, reduced manual overhead, and 
+                    consistent model accuracy across retraining cycles. I conclude by discussing the implications of CI/CD for 
+                    real-world ML applications and suggesting future research directions in MLOps automation.
+                </p>
+            </section>
+
+            <!-- Optional: Table of Contents -->
+            <aside class="post-content" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ol class="toc-list">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#related-work">Related Work</a></li>
+                    <li><a href="#methods">Methods</a></li>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#discussion">Discussion</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                    <li><a href="#acknowledgements">Acknowledgements</a></li>
+                    <li><a href="#references">References</a></li>
+                    <li><a href="#appendix">Appendix</a></li>
+                </ol>
+            </aside>
+
+            <!-- Main Sections -->
+            <section id="introduction" class="post-content">
+                <h2>1. Introduction</h2>
+                <h3>1.1 Background & Context</h3>
+                <p>Machine learning has moved from experimental notebooks to production-critical systems in domains such as healthcare, 
+                    finance, and e-commerce. As ML models transition into production, maintaining accuracy and scalability requires rigorous 
+                    engineering practices. Continuous integration (CI) and continuous deployment (CD), long established in software engineering, 
+                    are increasingly being applied to ML workflows under the umbrella of MLOps.
+                </p>
+                
+                <h3>1.2 Problem Statement</h3>
+                <p>Unlike traditional software, ML systems degrade over time due to evolving data distributions, making static deployment insufficient. 
+                    Manual retraining and redeployment are error-prone, time-consuming, and hinder reproducibility. There is a need for automated workflows 
+                    that ensure models are consistently retrained, validated, and deployed with minimal intervention.
+                </p>
+
+                <h3>1.3 Contributions by this Paper</h3>
+                <li>A reproducible CI/CD pipeline design tailored for ML systems.</li>
+                <li>A case study demonstrating automated retraining and deployment of a classification model.</li>
+                <li>An evaluation of deployment efficiency and model performance consistency.</li>
+                <p></p>
+
+                <h3>1.4 Paper Roadmap</h3>
+                <p>Section 2 reviews related work. Section 3 describes the pipeline architecture and experimental setup. Section 4 presents results. 
+                    Section 5 discusses limitations and future work. Section 6 concludes.
+                </p>
+            </section>
+
+            <section id="related-work" class="post-content">
+                <h2>2. Related Work</h2>
+                <p>Prior work in MLOps has emphasized the gap between traditional DevOps and ML workflows. Sculley et al. (2015) highlighted “technical debt” 
+                    in ML systems due to pipeline complexity. Tools such as Kubeflow, MLflow, and TFX have emerged to standardize training and deployment. 
+                    Continuous training approaches have been explored in reinforcement learning and recommendation systems, but fewer studies focus on 
+                    accessible, lightweight CI/CD pipelines suitable for small teams. This paper builds on these efforts by providing a concrete case study 
+                    using GitHub Actions and Docker for end-to-end automation.
+                </p>
+            </section>
+
+            <section id="methods" class="post-content">
+                <h2>3. Methods</h2>
+                <p>The technical details, such as the architecture, coding algorithms, and the setup will be explained in this section.</p>
+
+                <h3 id="method-architecture">3.1 Architecture / Algorithm</h3>
+                <p>The pipeline follows these stages:</p>
+                <li>1. Data Ingestion & Preprocessing: New data is validated and preprocessed using pandas and scikit-learn pipelines.</li>
+                <li>2. Model Training & Validation: Logistic regression classifier is trained. Accuracy and recall are logged.</li>
+                <li>3. Continuous Integration (CI): GitHub Actions automates linting, unit tests, and model validation on pull requests.</li>
+                <li>4. Containerization: Models are wrapped in a FastAPI REST service and packaged via Docker.</li>
+                <li>5. Continuous Deployment (CD): Successful builds trigger deployment to a cloud instance (AWS EC2).</li>
+                
+                <div class="code-block">
+<pre><code>// Pseudocode (simplified)
+if new_data_detected():
+    preprocess(data)
+    model = train(data)
+    metrics = validate(model, test_set)
+    if metrics > threshold:
+        docker_build(model, api)
+        push_to_registry()
+        deploy_to_server()
+</code></pre>
+                </div>
+
+                <h3 id="method-setup">3.2 Experimental Setup</h3>
+                <li>Dataset: UCI Adult Income dataset (binary classification: income >50K).</li>
+                <li>Preprocessing: Missing value imputation, categorical encoding, normalization.</li>
+                <li>Model: Logistic regression (baseline) with hyperparameters tuned via grid search.</li>
+                <li>Evaluation Metrics: Accuracy, F1-score, deployment latency.</li>
+                <li>Infrastructure: GitHub Actions for CI, Docker Hub for container registry, AWS EC2 for hosting.</li>
+                <li>Hardware: Intel i7 CPU, 16GB RAM for local training; t2.medium AWS instance for deployment.</li>
+            </section>
+
+            <section id="results" class="post-content">
+                <h2>4. Results</h2>
+                <p>The automated pipeline successfully retrained and redeployed the model across five data updates.</p>
+                <li>Accuracy: Averaged 85% across retraining cycles, with minimal variance.</li>
+                <li>Deployment Time: Reduced from ~40 minutes (manual workflow) to ~7 minutes (automated).</li>
+                <li>Reliability: Zero failed deployments in the experiment; CI tests caught 3 preprocessing errors before deployment.</li>
+                
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 80%">
+                            <span class="chart-label">Manual</span>
+                        </div>
+                        <div class="chart-bar traditional" style="height: 14%">
+                            <span class="chart-label">Automated</span>
+                        </div>
+                    </div>
+                    <p class="chart-caption">Figure 1: Drastic time reduction when automation is introduced in the workflow.</p>
+                </div>
+
+                <p>Qualitative observations: automation eliminated manual errors, enabled rapid iteration, and improved developer productivity.</p>
+
+            </section>
+
+            <section id="discussion" class="post-content">
+                <h2>5. Discussion</h2>
+                <p>The results show that lightweight CI/CD pipelines can significantly streamline ML deployment, even without enterprise-scale infrastructure. 
+                    However, limitations remain:
+                </p>
+                <li>Scalability: Pipeline was tested on a small dataset and may not generalize to deep learning models requiring GPUs.</li>
+                <li>Monitoring: While retraining was automated, monitoring data and concept drift in production was not implemented.</li>
+                <li>Cost: Cloud deployments, even small-scale, incur costs that must be balanced against automation benefits.</li>
+                <p></p>
+                <p>Future work should explore integrating drift detection, A/B testing, and advanced orchestration frameworks like Kubernetes for large-scale 
+                    deployments.
+                </p>
+            </section>
+
+            <section id="conclusion" class="post-content">
+                <h2>6. Conclusion</h2>
+                <p>This case study demonstrates the feasibility and advantages of applying CI/CD practices to ML workflows. By automating retraining 
+                    and deployment, we reduced time-to-production, improved reliability, and ensured consistent performance. This contributes to the 
+                    growing body of evidence that MLOps practices are essential for scaling machine learning beyond research environments.
+                </p>
+            </section>
+
+            <section id="acknowledgements" class="post-content">
+                <h2>Acknowledgements</h2>
+                <p>This work was conducted as part of an independent study project at the University of Washington. No external funding was received. 
+                    I thank peers in the UW Informatics program and UW Research Department for feedback on early pipeline prototypes.
+                </p>
+            </section>
+
+            <section id="references" class="post-content">
+                <h2>References</h2>
+                    <li>[1] D. Sculley et al., “Hidden Technical Debt in Machine Learning Systems,” NIPS 2015.</li>
+            </section>
+
+            <section id="appendix" class="post-content">
+                <h2>Appendix</h2>
+                <p>Figure 1: Bar chart visualizing deployment time reduction between manual and automated workflows</p>
+            </section>
+
+            <!-- Footer: Sharing / Tags (reuse blog styles) -->
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share:</span>
+                    <a href="#" class="share-button">PDF</a>
+                    <a href="#" class="share-button">BibTeX</a>
+                    <a href="#" class="share-button">Cite</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag mlops">ML Ops</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://www.linkedin.com/in/sid-tewari-1b98332a2/">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

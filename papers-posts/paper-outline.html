@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Title Goes Here | Research Repository</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements (reuse global theme) -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Paper Post Layout -->
+    <article class="blog-post paper-post">
+        <div class="post-container">
+            <!-- Header / Metadata -->
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-date">[YYYY-MM-DD]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category systems">SYSTEMS</span>
+                </div>
+                <h1 class="post-title">Paper Title Goes Here</h1>
+                <div class="post-info">
+                    <span class="author">Author One<sup>1,✉</sup>, Author Two<sup>2</sup>, Author Three<sup>1</sup></span>
+                    <span class="read-time">~ N pages</span>
+                </div>
+                <div class="post-info">
+                    <span>Affiliations: <sup>1</sup>Institute / University, <sup>2</sup>Company / Lab</span>
+                </div>
+                <div class="post-info">
+                    <span>DOI: 10.xxxx/xxxxx • arXiv:xxxx.xxxxx • License: CC BY 4.0</span>
+                </div>
+            </header>
+
+            <!-- Abstract / Keywords -->
+            <section id="abstract" class="post-content">
+                <h2>Abstract</h2>
+                <p class="post-intro">A concise summary of the research problem, approach, key results, and implications. Typically 150–250 words.</p>
+                <p><strong>Keywords:</strong> term1; term2; term3; term4</p>
+            </section>
+
+            <!-- Optional: Table of Contents -->
+            <aside class="post-content" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ol class="toc-list">
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li><a href="#related-work">2. Related Work</a></li>
+                    <li><a href="#methods">3. Methods</a></li>
+                    <li><a href="#results">4. Results</a></li>
+                    <li><a href="#discussion">5. Discussion</a></li>
+                    <li><a href="#conclusion">6. Conclusion</a></li>
+                    <li><a href="#acknowledgements">Acknowledgements</a></li>
+                    <li><a href="#references">References</a></li>
+                    <li><a href="#appendix">Appendix</a></li>
+                </ol>
+            </aside>
+
+            <!-- Main Sections -->
+            <section id="introduction" class="post-content">
+                <h2>1. Introduction</h2>
+                <p>Introduce the problem, motivation, contributions, and paper organization.</p>
+                <ul>
+                    <li>Background and context</li>
+                    <li>Problem statement</li>
+                    <li>Main contributions (bulleted)</li>
+                    <li>Paper roadmap</li>
+                </ul>
+            </section>
+
+            <section id="related-work" class="post-content">
+                <h2>2. Related Work</h2>
+                <p>Summarize prior literature and position your approach relative to existing methods.</p>
+            </section>
+
+            <section id="methods" class="post-content">
+                <h2>3. Methods</h2>
+                <p>Describe datasets, model/algorithm, training procedure, and evaluation protocols.</p>
+                <h3 id="method-architecture">3.1 Architecture / Algorithm</h3>
+                <p>Core technical description with equations/pseudocode as needed.</p>
+                <div class="code-block">
+<pre><code>// Pseudocode placeholder
+Initialize Model()
+for epoch in 1..E do
+    Optimize(Model, Data)
+end</code></pre>
+                </div>
+                <h3 id="method-setup">3.2 Experimental Setup</h3>
+                <p>Datasets, preprocessing, hyperparameters, hardware, and reproducibility details.</p>
+            </section>
+
+            <section id="results" class="post-content">
+                <h2>4. Results</h2>
+                <p>Present quantitative and qualitative results with appropriate analysis.</p>
+                <div class="data-visualization">
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 75%">
+                            <span class="chart-label">Method</span>
+                        </div>
+                        <div class="chart-bar traditional" style="height: 55%">
+                            <span class="chart-label">Baseline</span>
+                        </div>
+                    </div>
+                    <p class="chart-caption">Figure 1: Example metric comparison.</p>
+                </div>
+            </section>
+
+            <section id="discussion" class="post-content">
+                <h2>5. Discussion</h2>
+                <p>Interpret results, discuss limitations, and suggest future directions.</p>
+            </section>
+
+            <section id="conclusion" class="post-content">
+                <h2>6. Conclusion</h2>
+                <p>Concise summary of findings and contributions.</p>
+            </section>
+
+            <section id="acknowledgements" class="post-content">
+                <h2>Acknowledgements</h2>
+                <p>Funding sources, collaborators, and ethical disclosures.</p>
+            </section>
+
+            <section id="references" class="post-content">
+                <h2>References</h2>
+                <ol class="reference-list">
+                    <li>[1] Author, Title, Venue, Year.</li>
+                    <li>[2] Author, Title, Venue, Year.</li>
+                    <li>[3] Author, Title, Venue, Year.</li>
+                </ol>
+            </section>
+
+            <section id="appendix" class="post-content">
+                <h2>Appendix</h2>
+                <p>Additional figures, proofs, ablations, or extended tables.</p>
+            </section>
+
+            <!-- Footer: Sharing / Tags (reuse blog styles) -->
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Share:</span>
+                    <a href="#" class="share-button">PDF</a>
+                    <a href="#" class="share-button">BibTeX</a>
+                    <a href="#" class="share-button">Cite</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag systems">SYSTEMS</span>
+                    <span class="tag research">RESEARCH</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="../terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
+

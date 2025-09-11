@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{CI/CD in Machine Learning: Case Study of Automating Model Retraining and Deployment}
+\author{Siddheshwar Tewari \\
+University of Washington, Seattle \\
+\texttt{sidtewar@uw.edu}}
+\date{2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The rapid adoption of machine learning (ML) in production environments has highlighted the importance of continuous integration and continuous deployment (CI/CD) practices for sustaining model quality and reliability. Unlike traditional software, ML systems face unique challenges such as data drift, retraining requirements, and pipeline reproducibility. In this paper, I present a case study implementing an automated CI/CD pipeline for machine learning that integrates data pre-processing, model training, validation, containerization, and deployment. Using GitHub Actions for CI and Docker-based deployment with FastAPI, I demonstrate a reproducible workflow for retraining and redeploying a classification model when new data arrives. My results show significant improvements in deployment speed, reduced manual overhead, and consistent model accuracy across retraining cycles. I conclude by discussing the implications of CI/CD for real-world ML applications and suggesting future research directions in MLOps automation.
+\end{abstract}
+
+\section{Introduction}
+\subsection{Background and Context}
+Machine learning has moved from experimental notebooks to production-critical systems in domains such as healthcare, finance, and e-commerce. As ML models transition into production, maintaining accuracy and scalability requires rigorous engineering practices. Continuous integration (CI) and continuous deployment (CD), long established in software engineering, are increasingly being applied to ML workflows under the umbrella of MLOps.
+
+\subsection{Problem Statement}
+Unlike traditional software, ML systems degrade over time due to evolving data distributions, making static deployment insufficient. Manual retraining and redeployment are error-prone, time-consuming, and hinder reproducibility. There is a need for automated workflows that ensure models are consistently retrained, validated, and deployed with minimal intervention.
+
+\subsection{Contributions}
+This paper contributes:
+\begin{itemize}
+    \item A reproducible CI/CD pipeline design tailored for ML systems.
+    \item A case study demonstrating automated retraining and deployment of a classification model.
+    \item An evaluation of deployment efficiency and model performance consistency.
+\end{itemize}
+
+\subsection{Paper Roadmap}
+Section~\ref{sec:related} reviews related work. Section~\ref{sec:methods} describes the pipeline architecture and experimental setup. Section~\ref{sec:results} presents results. Section~\ref{sec:discussion} discusses limitations and future work. Section~\ref{sec:conclusion} concludes.
+
+\section{Related Work} \label{sec:related}
+Prior work in MLOps has emphasized the gap between traditional DevOps and ML workflows. \cite{sculley2015}Sculley et al. (2015) highlighted ``technical debt'' in ML systems due to pipeline complexity. Tools such as Kubeflow, MLflow, and TFX have emerged to standardize training and deployment. Continuous training approaches have been explored in reinforcement learning and recommendation systems, but fewer studies focus on accessible, lightweight CI/CD pipelines suitable for small teams. This paper builds on these efforts by providing a concrete case study using GitHub Actions and Docker for end-to-end automation.
+
+\section{Methods} \label{sec:methods}
+\subsection{Architecture / Algorithm}
+The pipeline follows these stages:
+\begin{enumerate}
+    \item Data ingestion and preprocessing (pandas, scikit-learn).
+    \item Model training and validation (logistic regression).
+    \item Continuous integration with GitHub Actions (linting, unit tests).
+    \item Containerization via FastAPI + Docker.
+    \item Continuous deployment to AWS EC2.
+\end{enumerate}
+
+\noindent Pseudocode:
+\begin{verbatim}
+if new_data_detected():
+    preprocess(data)
+    model = train(data)
+    metrics = validate(model, test_set)
+    if metrics > threshold:
+        docker_build(model, api)
+        push_to_registry()
+        deploy_to_server()
+\end{verbatim}
+
+\subsection{Experimental Setup}
+\begin{itemize}
+    \item Dataset: UCI Adult Income dataset.
+    \item Preprocessing: Imputation, categorical encoding, normalization.
+    \item Model: Logistic regression with grid search hyperparameters.
+    \item Metrics: Accuracy, F1-score, deployment latency.
+    \item Infrastructure: GitHub Actions, Docker Hub, AWS EC2.
+    \item Hardware: Intel i7 CPU, 16GB RAM (local), t2.medium (AWS).
+\end{itemize}
+
+\section{Results} \label{sec:results}
+The automated pipeline successfully retrained and redeployed the model across five simulated data updates.
+\begin{itemize}
+    \item Accuracy: averaged 85\% across retraining cycles.
+    \item Deployment time: reduced from $\sim$40 minutes (manual) to $\sim$7 minutes (automated).
+    \item Reliability: 0 failed deployments; CI tests caught 3 pre-processing errors.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{CI-CD-ML-Bar-Chart.png}
+    \caption{Drastic time reduction when automation is introduced in the workflow.}
+    \label{fig:pipeline}
+\end{figure}
+
+\section{Discussion} \label{sec:discussion}
+Results show that lightweight CI/CD pipelines can streamline ML deployment. However:
+\begin{itemize}
+    \item \textbf{Scalability:} tested only on small datasets; deep learning requires GPUs.
+    \item \textbf{Monitoring:} data drift detection not fully integrated.
+    \item \textbf{Cost:} cloud deployments incur recurring costs.
+\end{itemize}
+Future work: integrate drift detection, A/B testing, and Kubernetes orchestration.
+
+\section{Conclusion} \label{sec:conclusion}
+This case study demonstrates the feasibility and advantages of CI/CD in ML workflows. Automating retraining and deployment reduced time-to-production, improved reliability, and ensured consistent performance. This adds to evidence that MLOps practices are essential for scaling ML beyond research.
+
+\section*{Acknowledgements}
+This work was conducted as part of an independent study at the University of Washington. No external funding was received. Thanks to UW Informatics peers and UW Research Department for pipeline feedback.
+
+\bibliographystyle{plain}
+\bibliography{CI-CD-ML-BIB}
+
+\section*{Appendix}
+\begin{itemize}
+    \item Figure 1: Bar chart visualizing deployment time reduction between manual and automated workflow
+\end{itemize}
+
+\end{document}

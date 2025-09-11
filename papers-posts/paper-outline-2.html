@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Outline v2 | Research Repository</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    <div class="particles" id="particlesContainer"></div>
+    <div class="data-streams" id="dataStreams"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">SidTewari</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="mobile-menu-logo">SidTewari</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../papers.html" class="active">Papers</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Paper Post: Alternative Structure -->
+    <article class="blog-post paper-post">
+        <div class="post-container">
+            <!-- Graphical Abstract & Key Info -->
+            <header class="post-header">
+                <h1 class="post-title">Graph-Driven Learning with Self-Evolving Topologies</h1>
+                <div class="post-info">
+                    <span class="author">A. Researcher<sup>1,✉</sup>, B. Scientist<sup>2</sup>, C. Engineer<sup>2</sup></span>
+                </div>
+                <div class="post-info">
+                    <span>Affiliations: <sup>1</sup>NeuroSystems Lab, <sup>2</sup>QuantumAI Research</span>
+                </div>
+                <div class="post-meta">
+                    <span class="post-date">[YYYY-MM-DD]</span>
+                    <span class="post-category ai">AI</span>
+                    <span class="post-category systems">SYSTEMS</span>
+                </div>
+            </header>
+
+            <section class="post-content" id="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>High-level summary of the problem, the proposed approach, and headline results with a quick visual overview.</p>
+                <figure class="data-visualization" aria-label="Graphical Abstract">
+                    <svg viewBox="0 0 600 220" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <defs>
+                            <linearGradient id="grad" x1="0" x2="1" y1="0" y2="0">
+                                <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#ff00ff" stop-opacity="0.8"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="0" y="0" width="600" height="220" fill="none" stroke="#808080" stroke-opacity="0.3"/>
+                        <circle cx="120" cy="80" r="32" fill="none" stroke="#00ffff"/>
+                        <circle cx="200" cy="140" r="22" fill="none" stroke="#ff00ff"/>
+                        <circle cx="80" cy="150" r="18" fill="none" stroke="#7c3aed"/>
+                        <line x1="120" y1="80" x2="200" y2="140" stroke="url(#grad)"/>
+                        <line x1="120" y1="80" x2="80" y2="150" stroke="#7c3aed"/>
+                        <line x1="80" y1="150" x2="200" y2="140" stroke="#ff00ff"/>
+                        <text x="20" y="200" fill="#a1a1aa" font-size="12">Graphical abstract: evolving graph, learned connectivity, improved metrics</text>
+                    </svg>
+                    <figcaption class="chart-caption">Graphical Abstract</figcaption>
+                </figure>
+                <ul>
+                    <li><strong>Problem:</strong> Dynamic graph learning under streaming updates.</li>
+                    <li><strong>Approach:</strong> Self-evolving topology with stability constraints.</li>
+                    <li><strong>Result:</strong> +4.3% accuracy; 1.8× faster adaptation.</li>
+                </ul>
+            </section>
+
+            <section class="post-content" id="contribution-matrix">
+                <h2>Contributions at a Glance</h2>
+                <ul>
+                    <li>New stability-regularized topology update rule.</li>
+                    <li>Streaming evaluation protocol for dynamic graphs.</li>
+                    <li>Open benchmark and reproducible pipeline.</li>
+                </ul>
+            </section>
+
+            <section class="post-content" id="dataset-card">
+                <h2>Dataset Card</h2>
+                <p>Summarize datasets, licenses, splits, and ethical considerations.</p>
+                <div class="warning-box">
+                    <h3>Note</h3>
+                    <p>Data contains sensitive attributes; apply fairness-aware evaluation.</p>
+                </div>
+            </section>
+
+            <!-- Visualization Gallery -->
+            <section class="post-content" id="visualization-gallery">
+                <h2>Visualization Gallery</h2>
+
+                <!-- Line Chart (Accuracy over epochs) -->
+                <figure class="data-visualization" aria-label="Line chart: accuracy over epochs">
+                    <svg viewBox="0 0 600 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <rect x="40" y="20" width="540" height="220" fill="none" stroke="#3a3a3a"/>
+                        <!-- axes -->
+                        <line x1="40" y1="240" x2="580" y2="240" stroke="#606060"/>
+                        <line x1="40" y1="20" x2="40" y2="240" stroke="#606060"/>
+                        <!-- baseline ticks -->
+                        <g fill="#a1a1aa" font-size="10">
+                            <text x="35" y="245">0</text>
+                            <text x="28" y="200">25</text>
+                            <text x="28" y="160">50</text>
+                            <text x="28" y="120">75</text>
+                            <text x="24" y="80">100</text>
+                        </g>
+                        <!-- accuracy curve -->
+                        <polyline fill="none" stroke="#00ffff" stroke-width="2"
+                                  points="40,230 100,220 160,200 220,170 280,140 340,115 400,95 460,85 520,80 580,78" />
+                        <!-- moving average -->
+                        <polyline fill="none" stroke="#ff00ff" stroke-width="1" stroke-dasharray="4 3"
+                                  points="40,232 100,219 160,203 220,174 280,147 340,120 400,100 460,89 520,83 580,80" />
+                        <text x="420" y="40" fill="#a1a1aa" font-size="11">Accuracy over Epochs</text>
+                    </svg>
+                    <figcaption class="chart-caption">Figure A: Accuracy improves with topology updates.</figcaption>
+                </figure>
+
+                <!-- Scatter Plot (Embedding space) -->
+                <figure class="data-visualization" aria-label="Scatter plot: 2D embeddings">
+                    <svg viewBox="0 0 600 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <rect x="40" y="20" width="540" height="200" fill="none" stroke="#3a3a3a"/>
+                        <g opacity="0.9">
+                            <circle cx="120" cy="120" r="3" fill="#00ffff"/>
+                            <circle cx="150" cy="130" r="3" fill="#00ffff"/>
+                            <circle cx="180" cy="115" r="3" fill="#00ffff"/>
+                            <circle cx="210" cy="100" r="3" fill="#00ffff"/>
+                            <circle cx="420" cy="80" r="3" fill="#ff00ff"/>
+                            <circle cx="440" cy="95" r="3" fill="#ff00ff"/>
+                            <circle cx="460" cy="75" r="3" fill="#ff00ff"/>
+                            <circle cx="480" cy="90" r="3" fill="#ff00ff"/>
+                            <circle cx="250" cy="170" r="3" fill="#7c3aed"/>
+                            <circle cx="270" cy="185" r="3" fill="#7c3aed"/>
+                            <circle cx="290" cy="175" r="3" fill="#7c3aed"/>
+                            <circle cx="310" cy="160" r="3" fill="#7c3aed"/>
+                        </g>
+                        <text x="420" y="40" fill="#a1a1aa" font-size="11">2D Embedding Scatter</text>
+                    </svg>
+                    <figcaption class="chart-caption">Figure B: Embedding clusters by class.</figcaption>
+                </figure>
+
+                <!-- Confusion Matrix Heatmap -->
+                <figure class="data-visualization" aria-label="Confusion matrix heatmap">
+                    <svg viewBox="0 0 360 360" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <defs>
+                            <linearGradient id="hm" x1="0" x2="0" y1="1" y2="0">
+                                <stop offset="0%" stop-color="#0a0a0a"/>
+                                <stop offset="100%" stop-color="#00ffff"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="40" y="40" width="280" height="280" fill="none" stroke="#3a3a3a"/>
+                        <!-- 4x4 heatmap cells -->
+                        <g>
+                            <rect x="40" y="40" width="70" height="70" fill="#00ffff" fill-opacity="0.9"/>
+                            <rect x="110" y="40" width="70" height="70" fill="#00ffff" fill-opacity="0.6"/>
+                            <rect x="180" y="40" width="70" height="70" fill="#00ffff" fill-opacity="0.3"/>
+                            <rect x="250" y="40" width="70" height="70" fill="#00ffff" fill-opacity="0.1"/>
+
+                            <rect x="40" y="110" width="70" height="70" fill="#00ffff" fill-opacity="0.4"/>
+                            <rect x="110" y="110" width="70" height="70" fill="#00ffff" fill-opacity="0.8"/>
+                            <rect x="180" y="110" width="70" height="70" fill="#00ffff" fill-opacity="0.5"/>
+                            <rect x="250" y="110" width="70" height="70" fill="#00ffff" fill-opacity="0.2"/>
+
+                            <rect x="40" y="180" width="70" height="70" fill="#00ffff" fill-opacity="0.25"/>
+                            <rect x="110" y="180" width="70" height="70" fill="#00ffff" fill-opacity="0.35"/>
+                            <rect x="180" y="180" width="70" height="70" fill="#00ffff" fill-opacity="0.75"/>
+                            <rect x="250" y="180" width="70" height="70" fill="#00ffff" fill-opacity="0.3"/>
+
+                            <rect x="40" y="250" width="70" height="70" fill="#00ffff" fill-opacity="0.1"/>
+                            <rect x="110" y="250" width="70" height="70" fill="#00ffff" fill-opacity="0.2"/>
+                            <rect x="180" y="250" width="70" height="70" fill="#00ffff" fill-opacity="0.45"/>
+                            <rect x="250" y="250" width="70" height="70" fill="#00ffff" fill-opacity="0.85"/>
+                        </g>
+                        <text x="120" y="30" fill="#a1a1aa" font-size="11">Confusion Matrix</text>
+                    </svg>
+                    <figcaption class="chart-caption">Figure C: Confusion matrix across 4 classes.</figcaption>
+                </figure>
+
+                <!-- ROC Curve -->
+                <figure class="data-visualization" aria-label="ROC curve">
+                    <svg viewBox="0 0 400 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <rect x="40" y="20" width="320" height="240" fill="none" stroke="#3a3a3a"/>
+                        <!-- diagonal baseline -->
+                        <line x1="40" y1="260" x2="360" y2="20" stroke="#606060" stroke-dasharray="4 4"/>
+                        <!-- ROC curve -->
+                        <path d="M40 260 Q 120 180, 180 140 T 360 20" fill="none" stroke="#ff00ff" stroke-width="2"/>
+                        <text x="200" y="40" fill="#a1a1aa" font-size="11">ROC AUC ≈ 0.93</text>
+                    </svg>
+                    <figcaption class="chart-caption">Figure D: ROC curve vs random baseline.</figcaption>
+                </figure>
+
+                <!-- Horizontal Bar Chart (Ablation scores) -->
+                <figure class="data-visualization" aria-label="Horizontal bars: ablation study">
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 16px; width: 72%; margin: 6px 0;">
+                            <span class="chart-label">+ Stability Reg.</span>
+                        </div>
+                        <div class="chart-bar traditional" style="height: 16px; width: 61%; margin: 6px 0;">
+                            <span class="chart-label">− Topology Updates</span>
+                        </div>
+                        <div class="chart-bar" style="height: 16px; width: 80%; margin: 6px 0;">
+                            <span class="chart-label">Full Model</span>
+                        </div>
+                    </div>
+                    <figcaption class="chart-caption">Figure E: Ablations on validation accuracy.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Method Overview (Module-first) -->
+            <section class="post-content" id="method-overview">
+                <h2>Method Overview</h2>
+                <p>Present the system as composable modules: topology learner, stability regularizer, and streaming updater.</p>
+                <div class="code-block">
+<pre><code>// High-level pipeline (pseudocode)
+graph = Initialize()
+for batch in Stream(Data):
+    graph = UpdateTopology(graph, batch)
+    loss  = TaskLoss(graph) + StabilityReg(graph)
+    Optimize(loss)
+end</code></pre>
+                </div>
+            </section>
+
+            <!-- Experiments & Protocols -->
+            <section class="post-content" id="experiments">
+                <h2>Experiments</h2>
+                <ul>
+                    <li>Benchmarks: D1, D2, D3 with official splits.</li>
+                    <li>Metrics: Accuracy, F1, AUROC, Calibration.</li>
+                    <li>Protocols: Streaming updates, cold-start, drift.</li>
+                </ul>
+            </section>
+
+            <!-- User Study & Qualitative -->
+            <section class="post-content" id="user-study">
+                <h2>User Study & Qualitative Analysis</h2>
+                <p>Summarize feedback from domain experts and qualitative failure modes.</p>
+            </section>
+
+            <!-- Ethics & Impact -->
+            <section class="post-content" id="ethics">
+                <h2>Ethics & Broader Impact</h2>
+                <p>Discuss societal implications, risks, and mitigations.</p>
+            </section>
+
+            <!-- Reproducibility Checklist -->
+            <section class="post-content" id="reproducibility">
+                <h2>Reproducibility Checklist</h2>
+                <ul>
+                    <li>All hyperparameters disclosed.</li>
+                    <li>Training/validation/test splits fixed and released.</li>
+                    <li>Compute budget and hardware listed.</li>
+                    <li>Code and scripts for evaluation included.</li>
+                </ul>
+            </section>
+
+            <!-- Limitations & Future Work -->
+            <section class="post-content" id="limitations">
+                <h2>Limitations</h2>
+                <p>Enumerate known weaknesses and failure scenarios. Outline future improvements.</p>
+            </section>
+
+            <!-- References (unstyled list placeholder) -->
+            <section class="post-content" id="references">
+                <h2>References</h2>
+                <ol class="reference-list">
+                    <li>[1] Author, Title, Venue, Year.</li>
+                    <li>[2] Author, Title, Venue, Year.</li>
+                    <li>[3] Author, Title, Venue, Year.</li>
+                </ol>
+            </section>
+
+            <!-- Footer actions -->
+            <footer class="post-footer">
+                <div class="share-links">
+                    <span>Artifacts:</span>
+                    <a href="#" class="share-button">PDF</a>
+                    <a href="#" class="share-button">Code</a>
+                    <a href="#" class="share-button">BibTeX</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag ai">AI</span>
+                    <span class="tag systems">SYSTEMS</span>
+                    <span class="tag research">RESEARCH</span>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="../terms.html">Terms</a>
+                <span class="footer-separator">•</span>
+                <a href="https://github.com/SiddheshwarTewari">GitHub</a>
+                <span class="footer-separator">•</span>
+                <a href="https://linkedin.com/in/sidtewari">LinkedIn</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sid Tewari. All rights reserved.</p>
+                <p class="footer-credit">Powered by <a href="#" target="_blank">NeuralCore</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
+
